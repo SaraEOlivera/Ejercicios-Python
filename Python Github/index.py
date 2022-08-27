@@ -262,4 +262,172 @@ if dia == 25 and mes == 12:
 
 #-------------------------------------------------------------------------
 
+""" #21 Se ingresan por teclado tres números, si todos los valores ingresados
+#son menores a 10, imprimir en pantalla la leyenda
+#"Todos los números son menores a diez """
 
+num1 = int(input("Ingrese el primer valor: "))
+num2 = int(input("Ingrese el segundo valor: "))
+num3 = int(input("Ingrese el tercer valor: "))
+
+if num1 < 10 and num2 < 10 and num3 < 10:
+    print("Todos los números son menores a diez")
+
+#--------------------------------------------------------------------
+
+""" #22 Se ingresan por teclado tres números, si al menos uno de los valores
+ingresados es menor a 10, imprimir en pantalla la leyenda
+#"Alguno de los números es menor a diez". """
+
+num1 = int(input("Ingrese el primer valor: "))
+num2 = int(input("Ingrese el segundo valor: "))
+num3 = int(input("Ingrese el tercer valor: "))
+
+if num1 < 10 or num2 < 10 or num3 < 10:
+    print("Alguno de los números es menor a diez")
+
+#-----------------------------------------------------------------
+""" #23 Se ingresan tres valores por teclado, si todos son iguales se imprime
+la suma del primero con el segundo y a este resultado se lo multiplica
+por el tercero"""
+
+num1 = int(input("Ingrese el primer valor: "))
+num2 = int(input("Ingrese el segundo valor: "))
+num3 = int(input("Ingrese el tercer valor: "))
+
+if num1 == num2 and num1 == num3:
+    resultado = (num1 + num2) * num3
+    print(resultado)
+ 
+#-----------------------------------------------------------------------------
+
+""" #24 Escribir un programa que pida ingresar la coordenada de un punto en el plano,
+es decir dos valores enteros x e y (distintos a cero).
+Posteriormente imprimir en pantalla en que cuadrante se ubica dicho punto.
+(1º Cuadrante si x > 0 Y y > 0 , 2º Cuadrante: x < 0 Y y > 0, etc.)"""
+
+x = int(input("Ingrese la coordenada X: "))
+y = int(input("Ingrese la coordenada Y: "))
+
+if x > 0 and y > 0:
+    print("X e Y se encuentran en el cuadrante 1")
+else:
+    if x > 0 and y < 0:
+        print("X e Y se encuentran en el cuadrante 4")
+    else:
+        if x < 0 and y > 0:
+            print("X e Y se encuentran en el cuadrante 2")
+        else:
+            print("X e Y se encuentran en el cuadrante 3")
+            
+#----------------------------------------------------------------------------
+
+""" #25 De un operario se conoce su sueldo y los años de antigüedad.
+Se pide confeccionar un programa que lea los datos de entrada e informe:
+a) Si el sueldo es inferior a 500 y su antigüedad es igual o superior
+a 10 años, otorgarle un aumento del 20 %, mostrar el sueldo a pagar.
+b)Si el sueldo es inferior a 500 pero su antigüedad es menor a 10 años,
+otorgarle un aumento de 5 %.
+c) Si el sueldo es mayor o igual a 500 mostrar el sueldo en pantalla
+sin cambios. """
+
+sueldo = int(input("Ingresar el sueldo del operario: "))
+antiguedad = int(input("Ingresar la antiguedad del operario: "))
+
+if sueldo < 500 and antiguedad >= 10:
+    porcentaje = sueldo * 0.20
+    sueldo += porcentaje
+    print("El sueldo a pagar es ", sueldo)
+else:
+    if sueldo < 500 and antiguedad < 10:
+        porcentaje = sueldo * 0.05
+        sueldo += porcentaje
+        print("El sueldo a pagar es ", sueldo)
+    else:
+        if sueldo >= 500:
+            print("El sueldo a pagar es ", sueldo)
+
+#-------------------------------------------------------------------
+
+""" #26 Escribir un programa en el cual: dada una lista de tres valores numéricos
+distintos se calcule e informe su rango de variación
+(debe mostrar el mayor y el menor de ellos)"""
+
+numero1 = int(input("Ingrese el primer valor: "))
+numero2 = int(input("Ingrese el segundo valor: "))
+numero3 = int(input("Ingrese el tercer valor: "))
+
+if numero1 < numero2 and numero1 < numero3:
+    print("El numero menor es: ",numero1)
+else:
+    if numero2 < numero3:
+        print("El numero menor es: ",numero2)
+    else:
+        print("El numero menor es: ",numero3)
+
+if numero1 > numero2 and numero1 > numero3:
+    print("El numero mayor es: ",numero1)
+else:
+    if numero2 > numero3:
+        print("El numero mayor es: ",numero2)
+    else:
+        print("El numero mayor es: ",numero3)
+
+#--------------------------------------------------------------------
+
+""" #27 Realizar un programa que imprima en pantalla los números del 1 al 100."""
+
+x = 1
+while x <= 100:
+    print(x)
+    x+= 1
+
+#---------------------------------------------------------------------
+
+""" #28 Codificar un programa que solicite la carga de un valor positivo
+y nos muestre desde 1 hasta el valor ingresado de uno en uno."""
+
+x = 1
+numero = int(input("Ingrese un numero positivo: "))
+
+while x <= numero:
+    print(x)
+    x+=1
+
+#-----------------------------------------------------------------------------
+
+""" #29 Desarrollar un programa que permita la carga de 10 valores por teclado
+y nos muestre posteriormente la suma de los valores ingresados y su promedio."""
+
+x = 1
+suma = 0
+while x <=10:
+    valor= int(input("Ingrese un valor: "))
+    suma += valor
+    x+=1
+
+promedio = suma // 10
+print("La suma de los valores es ",suma)
+print("El promedio de los valores es ",promedio)
+
+#-----------------------------------------------------------------------
+
+"""#30 Una planta que fabrica perfiles de hierro posee un lote de n piezas.
+Confeccionar un programa que pida ingresar por teclado la cantidad de piezas
+a procesar y luego ingrese la longitud de cada perfil;
+sabiendo que la pieza cuya longitud esté comprendida en el rango de
+1.20 y 1.30 son aptas.
+Imprimir por pantalla la cantidad de piezas aptas que hay en el lote."""
+
+
+x = 1
+cantidad = 0
+n = int(input("Ingrese la cantidad de piezas: "))
+while x <= n:
+    longitud= float(input("Ingrese la longitud de cada perfil: "))
+    if longitud >= 1.20 and longitud <= 1.30:
+        cantidad +=1
+    x+=1
+print("Cantidad de piezas aptas: ",cantidad)
+
+#----------------------------------------------------------------------------
