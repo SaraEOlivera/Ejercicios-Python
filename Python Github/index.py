@@ -431,3 +431,192 @@ while x <= n:
 print("Cantidad de piezas aptas: ",cantidad)
 
 #----------------------------------------------------------------------------
+"""#31 Escribir un programa que solicite ingresar 10 notas de alumnos y nos
+informe cuántos tienen notas mayores o iguales a 7 y cuántos menores."""
+
+x = 1
+mas_7 = 0
+menos_7 = 0
+while x <= 10:
+    nota = int(input("Ingrese las notas: "))
+    if nota >= 7:
+        mas_7 += 1
+    else:
+        menos_7 += 1
+    x += 1
+print("Alumnos con nota mayor o igual a siete: ")
+print(mas_7)
+print("Alumnos con nota menor a siete: ")
+print(menos_7)
+
+#--------------------------------------------------------------------------
+
+"""#32 Se ingresan un conjunto de n alturas de personas por teclado.
+Mostrar la altura promedio de las personas."""
+
+
+
+x = 1
+suma = 0
+personas = int(input("Ingrese la cantidad de personas: ")) 
+while x <= personas:
+    n = float(input("Ingrese la altura de las personas: "))
+    suma += n
+    x +=1
+promedio = suma / personas
+print("La altura promedio es: ")
+print(promedio)
+
+#---------------------------------------------------------------------
+
+"""#33 En una empresa trabajan n empleados cuyos sueldos oscilan entre $100 y $500,
+realizar un programa que lea los sueldos que cobra cada empleado e informe
+cuántos empleados cobran entre $100 y $300 y cuántos cobran más de $300.
+Además el programa deberá informar el importe que gasta la empresa
+en sueldos al personal."""
+
+x = 1
+suma=0
+mayor_sueldo = 0
+menor_sueldo = 0
+empleados = int(input("Ingrese la cantidad de empleados: "))
+while x <= empleados:
+    sueldos = float(input("ingrese los sueldos de los empleados: "))
+    suma += sueldos
+    if sueldos >= 100 and sueldos <= 300:
+       menor_sueldo += 1
+    else:
+        mayor_sueldo += 1
+    x += 1
+print(menor_sueldo," son los empleados que cobran entre 100 y 300")
+print(mayor_sueldo, " son los empleados que cobran más de 300")
+print("En concepto de sueldo, la empresa gasta: ", suma)
+
+#---------------------------------------------------------------------
+
+#34 Realizar un programa que imprima 25 términos de la serie 11 - 22 - 33 - 44, etc
+#(No se ingresan valores por teclado)
+
+serie = 11
+x = 1
+while x <= 25:
+    print(serie)
+    serie += 11
+    x += 1
+
+#---------------------------------------------------------------------------------
+
+#35 Mostrar los múltiplos de 8 hasta el valor 500.
+#Debe aparecer en pantalla 8 - 16 - 24, etc
+x = 8
+while x<=500:
+    print(x)
+    x+=8
+
+#-----------------------------------------------------------------------
+
+"""#36 Realizar un programa que permita cargar dos listas de 15 valores cada una.
+Informar con un mensaje cual de las dos listas tiene un valor acumulado mayor
+(mensajes "Lista 1 mayor", "Lista 2 mayor", "Listas iguales")
+Tener en cuenta que puede haber dos o más estructuras repetitivas en un
+algoritmo."""
+
+x = 1
+lista1 = 0
+lista2 = 0
+print("Datos lista 1")
+while x <= 15:
+    numeros = int(input("Ingrese los valores: "))
+    lista1 += numeros
+    x +=1
+    
+x = 1
+print("Datos lista 2")
+while x <= 15:
+    numeros = int(input("Ingrese los valores: "))
+    lista2 += numeros
+    x +=1
+    
+if lista1 > lista2:
+    print("La lista 1 es mayor")
+else:
+    if lista2 > lista1:
+        print("La lista 2 es mayor")
+    else:
+        print("Las listas son iguales")
+
+#------------------------------------------------------------------
+
+""" #37 Desarrollar un programa que permita cargar n números enteros y luego nos
+informe cuántos valores fueron pares y cuántos impares.
+Emplear el operador “%” en la condición de la estructura condicional
+(este operador retorna el resto de la división de dos valores,
+por ejemplo 11%2 retorna un 1):	if valor%2==0: """
+
+x = 1
+num_par = 0
+num_impar = 0
+cantidad = int(input("Ingrese la cantidad de valores: "))
+while x <= cantidad:
+    num = int(input("ingrese los numeros: "))
+    if num % 2 == 0:
+        num_par += 1
+    else:
+        num_impar += 1
+    x += 1
+print("La cantidad de numeros pares es: ", num_par)
+print("La cantidad de numeros impares es: ", num_impar)
+        
+#--------------------------------------------------------------------
+"""#38 Realizar un programa que imprima en pantalla los números del 0 al 100.
+Este problema lo podemos resolver perfectamente con el ciclo while pero
+en esta situación lo resolveremos empleando el for."""
+
+for x in range(101):
+    print(x)
+
+##Realizar un programa que imprima en pantalla los números del 20 al 30.
+
+
+for x in range(20, 31):
+    print(x)
+
+
+#Realizar un programa que imprima en pantalla los númerosimpares del 1 al 100.
+
+
+for x in range(1, 101, 2):
+    print(x)
+
+#-----------------------------------------------------------
+
+""" #39 Desarrollar un programa que permita la carga de 10 valores por teclado y
+nos muestre posteriormente la suma de los valores ingresados y su promedio.
+Este problema ya lo desarrollamos, lo resolveremos empleando
+la estructura for para repetir la carga de los diez valores por teclado."""
+suma = 0
+for x in range(10):
+    valor=int(input("Ingrese un valor: "))
+    suma += valor
+print("La suma de los valores es ", suma)
+promedio = suma // 10
+print("El promedio de los valores es ", promedio)
+
+#--------------------------------------------------------------------
+
+#40 Escribir un programa que solicite por teclado 10 notas de alumnos y
+#nos informe cuántos tienen notas mayores o iguales a 7 y cuántos menores.
+
+superior = 0
+inferior = 0
+for x in range(10):
+    notas = int(input("Ingrese las notas de los alumnos: "))
+    if notas >= 7:
+        superior +=1
+    else:
+        inferior += 1
+print("Los alumnos con nota mayor igual a 7 son: ", superior)
+print("Los alumnos con nota inferior a 7 son: ", inferior)
+    
+#---------------------------------------------------------------------------------
+
