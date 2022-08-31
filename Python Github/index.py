@@ -620,3 +620,238 @@ print("Los alumnos con nota inferior a 7 son: ", inferior)
     
 #---------------------------------------------------------------------------------
 
+""" #41 Escribir un programa que lea 10 números enteros y luego muestre
+cuántos valores ingresados fueron múltiplos de 3 y cuántos de 5.
+Debemos tener en cuenta que hay números que son múltiplos de 3 y de 5 a la vez.
+multiplos_3 = 0
+multiplos_5 = 0"""
+
+multiplos_3 = 0
+multiplos_5 = 0
+for x in range(10):
+    valor = int(input("Ingrese diez valores: "))
+    if valor % 3 == 0:
+        multiplos_3+=1
+    if valor % 5 == 0:
+        multiplos_5+=1        
+print("Numeros multiplos de 3: ", multiplos_3)
+print("Numeros multiplos de 5: ", multiplos_5)
+
+#-------------------------------------------------------------------------
+
+#42 Codificar un programa que lea n números enteros y calcule la cantidad de
+#valores mayores o iguales a 1000 (n se carga por teclado)
+
+cantidad = 0
+n = int(input("Ingrese la cantidad de valores: "))
+for x in range(n):
+    valor = int(input("Ingrese los valores: "))
+    if valor >= 1000:
+        cantidad += 1
+print("Los numeros mayores o iguales a mil: ", cantidad)
+
+#-------------------------------------------------------------------
+
+#43 Desarrollar un programa que muestre la tabla de multiplicar del 5 (del 5
+#al 50)
+
+
+for i in range(11):
+    tabla = i*5
+    print(i," x 5 = ", tabla)
+
+
+print("tabla del 7:")
+
+for f in range(11):
+    siete = f*7
+    print(f, " x 7 = ", siete)
+
+#------------------------------------------------------------------
+
+""" #44 Confeccionar un programa que lea n pares de datos, cada par de datos
+corresponde a la medida de la base y la altura de un triángulo.
+El programa deberá informar:
+
+a) De cada triángulo la medida de su base, su altura y su superficie.
+b) La cantidad de triángulos cuya superficie es mayor a 12."""
+
+
+
+n = int(input("Ingrese la cantidad de triangulos: "))
+cantidad = 0
+for x in range(n):
+    base = int(input("Ingrese la medida de la base: "))
+    altura = int(input("Ingrese la medida de la altura: "))
+    superficie = (base * altura) / 2
+    print("La base del triangulo es", base," la altura: ", altura, " y su superficie es ", superficie)
+    if superficie > 12:
+        cantidad += 1
+print("Cantidad de triángulos con superficie mayor a 12: ", cantidad)
+
+#------------------------------------------------------------------
+
+#45 Desarrollar un programa que solicite la carga de 10 números e imprima
+#la suma de los últimos 5 valores ingresados.
+
+suma = 0
+suma_ultimos= 0
+for x in range(10):
+    numeros = int(input("Ingrese los valores: "))
+    suma+= numeros
+    suma_ultimos = suma // 2
+print("La suma de los ultimos cinco valores es igual a ", suma_ultimos)
+
+## Opcion2
+
+total = 0
+for f in range(10):
+    valor = int(input("Ingrese los numeros: "))
+    if f >= 5:
+        total+= valor
+print("La suma de los ultimos cinco valores es igual a ", total)
+
+#------------------------------------------------------------------------
+
+""" #46 Confeccionar un programa que permita ingresar un valor del 1 al 10
+y nos muestre la tabla de multiplicar del mismo (los primeros 12 términos)
+Ejemplo: Si ingreso 3 deberá aparecer en pantalla los valores 3, 6, 9,
+hasta el 36. """
+
+
+valor = int(input("Ingrese un numero del 1 al 10: "))
+for x in range(1, 13):
+    tabla = x * valor
+    print(x," x ", valor," = ", tabla)
+
+#------------------------------------------------------------------------
+
+"""#47 Realizar un programa que lea los lados de n triángulos, e informar:
+a) De cada uno de ellos, qué tipo de triángulo es: equilátero
+(tres lados iguales), isósceles (dos lados iguales), o escaleno
+(ningún lado igual)
+b) Cantidad de triángulos de cada tipo."""
+
+cantidad_e = 0
+cantidad_i = 0
+cantidad_es = 0
+triangulos = int(input("Ingrese la cantidad de triángulos: "))
+for x in range(triangulos):
+    lado1=int(input("Ingrese la medida del lado 1: "))
+    lado2 =int(input("Ingrese la medida del lado 2: "))
+    lado3 =int(input("Ingrese la medida del lado 3: "))
+    if lado1 == lado2 and lado1 == lado3:
+        cantidad_e += 1
+        print("Triangulos equilateros")
+    else:
+        if lado1 == lado2 or lado1 == 3 or lado2 == lado3:
+            cantidad_i += 1
+            print("Triangulos isosceles")
+        else:
+            cantidad_es += 1
+            print("Triangulos escalenos")
+print("Cantidad de triángulos equiláteros: ", cantidad_e)
+print("Cantidad de triángulos isosceles: ", cantidad_i)
+print("Cantidad de triángulos escalenos: ", cantidad_es)
+
+#-------------------------------------------------------------
+
+"""#48 Escribir un programa que pida ingresar coordenadas (x,y) que representan
+puntos en el plano. Informar cuántos puntos se han ingresado en el primer,
+segundo, tercer y cuarto cuadrante.
+Al comenzar el programa se pide que se ingrese la cantidad
+de puntos a procesar."""
+
+cuadrante1 = 0
+cuadrante2 = 0
+cuadrante3 = 0
+cuadrante4 = 0
+cantidad = int(input("Ingrese la cantidad de coordenadas X e Y: "))
+for x in range(cantidad):
+    coordenadas_x = int(input("Ingrese las coordenadas X: "))
+    coordenadas_y = int(input("Ingrese las coordenadas Y: "))
+    if coordenadas_x > 0 and coordenadas_y > 0:
+        cuadrante1 += 1
+    else:
+        if coordenadas_x > 0 and coordenadas_y < 0:
+            cuadrante4 += 1
+        else:
+            if coordenadas_x < 0 and coordenadas_y > 0:
+                cuadrante2 += 1
+            else:
+                if coordenadas_x > 0 and coordenadas_y > 0:
+                    cuadrante3 += 1
+print("Cantidad de coordenadas X e Y en el cuadrante 1: ", cuadrante1)
+print("Cantidad de coordenadas X e Y en el cuadrante 2: ", cuadrante2)
+print("Cantidad de coordenadas X e Y en el cuadrante 3: ", cuadrante3)
+print("Cantidad de coordenadas X e Y en el cuadrante 4: ", cuadrante4)
+
+#----------------------------------------------------------------------
+
+""" #49 Se realiza la carga de 10 valores enteros por teclado. Se desea conocer:
+a) La cantidad de valores ingresados negativos.
+b) La cantidad de valores ingresados positivos.
+c) La cantidad de múltiplos de 15.
+d) El valor acumulado de los números ingresados que son pares. """
+
+negativos = 0
+positivos = 0
+multiplos = 0
+pares = 0
+for x in range(10):
+    valor = int(input("Ingrese los valores: "))
+    if valor < 0:
+        negativos += 1
+    else:
+        positivos += 1
+        
+    if valor %15 == 0:
+        multiplos += 1
+    
+    if valor % 2 == 0:
+        pares += valor
+
+print("Cantidad de numeros negativos: ", negativos)
+print("Cantidad de numeros positivos: ", positivos)
+print("Cantidad de múltiplos de 15: ", multiplos)
+print("Valor acumulado de números pares : ", pares)
+
+#--------------------------------------------------------------------
+
+""" #50 Se cuenta con la siguiente información:
+Las edades de 5 estudiantes del turno mañana.
+Las edades de 6 estudiantes del turno tarde.
+Las edades de 11 estudiantes del turno noche.
+Las edades de cada estudiante deben ingresarse por teclado.
+a) Obtener el promedio de las edades de cada turno (tres promedios)
+b) Imprimir dichos promedios (promedio de cada turno)
+c) Mostrar por pantalla un mensaje que indique cual de los tres turnos
+tiene un promedio de edades mayor."""
+edades_tm = 0
+edades_tt = 0
+edades_tn = 0
+for x in range(5):
+    edades = int(input("Ingrese las edades del turno mañana: "))
+    edades_tm += edades
+    promedio_tm = edades_tm // 5
+for i in range(6):
+    edades = int(input("Ingrese las edades del turno tarde: "))
+    edades_tt += edades
+    promedio_tt = edades_tt // 6
+for i in range(11):
+    edades = int(input("Ingrese las edades del turno noche: "))
+    edades_tn += edades
+    promedio_tn = edades_tn // 11
+if promedio_tm > promedio_tt and promedio_tm > promedio_tn:
+    print("Entre los tres turnos el promedio de edades mayor es el del turno mañana")
+else:
+    if promedio_tt > promedio_tm and promedio_tt > promedio_tn:
+        print("Entre los tres turnos el promedio de edades mayor es el del turno tarde")
+    else:
+        if promedio_tn > promedio_tm and promedio_tn > promedio_tt:
+            print("Entre los tres turnos el promedio de edades mayor es el del turno noche")
+    
+    
+print("El promedio de edades del turno mañana es: ", promedio_tm)
+print("El promedio de edades del turno tarde es: ", promedio_tt)
+print("El promedio de edades del turno noche es: ", promedio_tn)
