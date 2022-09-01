@@ -855,3 +855,183 @@ else:
 print("El promedio de edades del turno mañana es: ", promedio_tm)
 print("El promedio de edades del turno tarde es: ", promedio_tt)
 print("El promedio de edades del turno noche es: ", promedio_tn)
+
+#-------------------------------------------------------------------------
+""" #51 Mostrar la tabla de multiplicar del 5 empleando primero el while
+y seguidamente de nuevo empleando el for."""
+
+
+x = 5
+while x <= 50:
+    print(x)
+    x+= 5
+
+
+print("Tabla del 5 con estructura for:")
+for x in range(11):
+    tabla = x * 5
+    print("5 x ",x," = ", tabla)
+
+#---------------------------------------------------------------------
+
+    """ #52 Realizar un programa que solicite la carga de valores enteros por teclado y
+los sume. Finalizar la carga al ingresar el valor -1. Dejar como comentario
+dentro del código fuente el enunciado del problema."""
+
+
+suma = 0
+cantidad = int(input("¿Cuantos numeros desea sumar? "))
+for x in range(cantidad):
+    numero = int(input("Ingrese los numeros: "))
+    suma += numero
+    if numero == -1:
+        break #detiene el programa
+print("La suma de los numeros es igual a ", suma)
+
+#solucion del profesor:
+
+suma_ = 0
+valor = int(input("Ingrese un valor (-1 finaliza la carga): "))#carga primer valor
+while valor != -1:
+    suma_+= valor
+    valor = int(input("Ingrese un valor (-1 finaliza la carga): "))#carga desde el valor 2 hasta el ultimo
+print("La suma de los valores ingresados")
+print(suma_)
+
+#--------------------------------------------------------------------------
+
+""" #53 Confeccionar un programa que solicite la carga de 10 valores reales
+por teclado. Mostrar al final su suma. Definir varias líneas de comentarios
+indicando el nombre del programa, el programador y la fecha de la última
+modificación. Utilizar el caracter # para los comentarios."""
+
+suma = 0
+for x in range(10):
+    valor = float(input("Ingrese un valor: "))
+    suma+= valor
+print("La suma de los valores es", suma)
+
+#25-08-2022
+
+#-----------------------------------------------------------------------------
+
+""" #54 Realizar la carga por teclado del nombre, edad y altura de dos personas.
+Mostrar por pantalla el nombre de la persona con mayor altura."""
+
+print("Datos de la primera persona")
+nombre_p1 = input("Ingrese el nombre: ")
+edad_p1 = int(input("Ingrese la edad: "))
+altura_p1 = float(input("Ingrese la altura:"))
+print("Datos de la segunda persona")
+nombre_p2 = input("Ingrese el nombre: ")
+edad_p2 = int(input("Ingrese la edad: "))
+altura_p2 = float(input("Ingrese la altura: "))
+if altura_p1 > altura_p2:
+    print("La persona más alta es ", nombre_p1)
+else:
+    print("La persona más alta es ", nombre_p2)
+
+#---------------------------------------------------------------------------
+
+""" #55 Realizar la carga de dos nombres por teclado. Mostrar cual de los dos
+es mayor alfabéticamente o si son iguales.
+(Se refiere al orden alfabetico, no a la cantidad de letras del nombre)"""
+
+nombre1 = input("Ingrese el primer nombre: ")
+nombre2 = input("Ingrese el segundo nombre: ")
+if nombre1 == nombre2:
+    print("Ambos nombres son iguales alfabéticamente")
+else:
+    if nombre1 > nombre2:
+        print(nombre1," es mayor alfabéticamente")
+    else:
+        print(nombre2," es mayor alfabéticamente")
+    
+
+#En la tabla de caracteres, las minusculas son mayores que las mayúsculas. Por
+#ello, ana sería mayor que Ana
+
+#-----------------------------------------------------------------------
+
+""" #56 Realizar la carga de enteros por teclado. Preguntar después que ingresa
+el valor si desea cargar otro valor debiendo el operador ingresar la cadena
+'si' o 'no' por teclado. Mostrar la suma de los valores ingresados."""
+
+valor1 =int(input("Ingrese un valor: "))
+valor2 =int(input("Ingrese un valor: "))
+respuesta = input("¿Desea ingresar un nuevo valor?(Responda si o no) ")
+
+if respuesta == "si":
+    nuevo_valor = int(input("Ingrese un nuevo valor: "))
+    suma = valor1 + valor2 + nuevo_valor
+    print("La suma de los tres valores es", suma)
+else:
+    if respuesta == "no":
+        suma = valor1 + valor2
+        print("La suma de los valores es",suma)
+
+print(" ")
+print("Solucion del profesor")
+opcion = "si"
+sumatoria = 0
+while opcion == "si":
+    valor = int(input("Ingrese un valor: "))
+    sumatoria+= valor
+    opcion = input("¿Desea cargar otro valor? (si/no)")
+print("La suma de los valores es", sumatoria)
+
+#Las mayusculas no tienen el mismo valor alfabético que las minusculas
+
+#-------------------------------------------------------------------------------
+
+""" #57 Realizar la carga de dos nombres de personas distintos.
+Mostrar por pantalla luego ordenados en forma alfabética."""
+
+nombre1= input("Ingrese el primer nombre: ")
+nombre2= input("Ingrese el segundo nombre: ")
+if nombre1<nombre2:
+    print(nombre1, nombre2)
+else:
+    print(nombre2, nombre1)
+
+#---------------------------------------------------------------------
+
+""" #58 Realizar la carga del nombre de una persona y luego mostrar el primer
+caracter del nombre y la cantidad de letras que lo componen"""
+
+nombre = input("Ingrese un nombre: ")
+print("Primera letra del nombre:", nombre[0])
+print("Cantidad de letras del nombre ingresado: ", len(nombre))
+
+#-----------------------------------------------------------------
+
+""" #59 Solicitar la carga del nombre de una persona en minúsculas.
+Mostrar un mensaje si comienza con vocal dicho nombre."""
+
+
+nombre = input("Ingrese un nombre en minúsculas: ")
+
+if nombre[0]== "a" or nombre[0]== "e" or nombre[0]== "i" or nombre[0]== "o" or nombre[0]== "u":
+    print("El nombre ", nombre, " comienza con vocal")
+else:
+    print("El nombre ", nombre, " no lleva vocal")
+
+#----------------------------------------------------------------------
+
+""" #60 Ingresar un mail por teclado. Verificar si el string ingresado
+contiene solo un caracter "@" """
+
+mail = input("Ingrese su e-mail: ")
+x = 0
+cantidad = 0
+
+while x < len(mail):
+    if mail[x] == "@":
+        cantidad += 1
+    x+=1
+if cantidad == 1:
+    print("El mail ingresado contiene un @")
+else:
+    print("El mail ingresado es incorrecto.")
+    
+#----------------------------------------------------------------------
