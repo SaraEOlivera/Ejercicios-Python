@@ -1035,3 +1035,140 @@ else:
     print("El mail ingresado es incorrecto.")
     
 #----------------------------------------------------------------------
+
+""" #61 Inicializar un string con la cadena "mAriA" luego llamar a sus métodos
+upper(), lower() y capitalize(), guardar los datos retornados en otros string
+y mostrarlos por pantalla."""
+
+nombre = "mAríA"
+print(nombre)
+nombre1 = nombre.upper()
+print(nombre1)
+nombre2 = nombre.lower()
+print(nombre2)
+nombre3 = nombre.capitalize()
+print(nombre3)
+
+#---------------------------------------------------------------------------------
+
+""" #62 Cargar una oración por teclado. Mostrar luego cuantos espacios en blanco
+se ingresaron. Tener en cuenta que un espacio en blanco es igual a
+" ", en cambio una cadena vacía es "" """
+
+
+oracion= input("Ingrese una oración: ")
+x = 0
+cantidad = 0
+while x < len(oracion):
+    if oracion[x] == " " :
+        cantidad+=1
+    x+=1
+print("Dentro de la oracion, hay ", cantidad, " espacios vacíos.")
+
+#-------------------------------------------------------------------------
+
+""" #63 Ingresar una oración que pueden tener letras tanto en mayúsculas como
+minúsculas. Contar la cantidad de vocales. Crear un segundo string con toda la
+oración en minúsculas para que sea más fácil disponer la condición que verifica
+que es una vocal. """
+
+oracion = input("Ingrese una oración: ")
+oracion1 = oracion.lower()
+vocales = 0
+x = 0
+
+while x<len(oracion1):
+    if oracion1[x] == "a" or oracion1[x] == "e" or oracion1[x] == "i" or oracion1[x] == "o" or oracion1[x] == "u":
+        vocales+=1
+    x+=1
+print("La oración ingresada contiene, ",vocales," vocales")
+
+#-----------------------------------------------------
+""" #64 Solicitar el ingreso de una clave por teclado y almacenarla en una
+cadena de caracteres. Controlar que el string ingresado tenga entre 10 y 20
+caracteres para que sea válido, en caso contrario mostrar un mensaje de error."""
+
+clave = input("Ingrese una clave: ")
+if len(clave) >= 10 and len(clave) <= 20:
+    print("La clave es válida")
+else:
+    print("La clave ingresada no es válida")
+
+#-----------------------------------------------------------------------
+
+""" #65 Definir una lista que almacene 5 enteros. Sumar todos sus elementos
+y mostrar dicha suma."""
+
+lista = [1,2,3,4,5]
+suma = 0
+x = 0
+
+while x < len(lista):
+    suma +=lista[x]
+    x+=1
+print("La lista almacenada", lista)
+print("La suma de los valores es igual a ",suma)
+
+#---------------------------------------------------------------------------
+
+""" #66 Definir una lista por asignación que almacene los nombres de los
+primeros cuatro meses de año. Mostrar el primer y último elemento de la
+lista solamente."""
+
+meses =["enero", "febrero", "marzo", "abril"]
+print("Primer mes: ",meses[0])
+print("Cuarto mes: ",meses[3])
+
+#-------------------------------------------------------------------------
+
+""" #67 Definir una lista por asignación que almacene en la primer
+componente el nombre de un alumno y en las dos siguientes sus notas.
+Imprimir luego el nombre y el promedio de las dos notas. """
+
+alumno = ["Olivera", 9, 10]
+promedio = (alumno[1] + alumno[2]) // 2
+print("El alumno ", alumno[0], " tiene el promedio: ", promedio)
+
+#----------------------------------------------------------------------
+
+""" #68 Definir por asignación una lista con 8 elementos enteros.
+Contar cuantos de dichos valores almacenan un valor superior a 100 """
+
+lista =[254, 77, 8, 122, 109, 5, 4, 11]
+x=0
+mayores = 0
+while x <len(lista):
+    if lista[x] > 100:
+        mayores+=1
+    x+=1
+print("Lista almacenada: ", lista)
+print("Hay ", mayores, " números mayores a 100")
+
+#-------------------------------------------------------------------------
+
+""" #69 Definir una lista por asignación con 5 enteros. Mostrar por pantalla
+solo los elementos con valor iguales o superiores a 7."""
+
+lista = [45, 1, 7, 2, 8]
+siete = 0
+for x in range(len(lista)):
+    if lista[x]>=7:
+        print("Numeros mayores/iguales a 7: ",lista[x])
+print("Lista almacenada: ",lista)
+
+#------------------------------------------------------------------
+
+""" #70 Definir una lista que almacene por asignación los nombres de 5
+personas. Contar cuantos de esos nombres tienen 5 o más caracteres."""
+
+lista = ["juan", "pedro", "luis", "maria", "joaquin"]
+x = 0
+nombres = 0
+while x < len(lista):
+    if len(lista[x]) >= 5:
+        nombres+=1
+    x+=1
+print("Hay ",nombres," nombres con 5 o más caracteres en la lista almacenada: ")
+print(lista)
+              
+#-------------------------------------------------------------------------------
