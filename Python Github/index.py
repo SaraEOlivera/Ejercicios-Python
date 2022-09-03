@@ -1172,3 +1172,207 @@ print("Hay ",nombres," nombres con 5 o más caracteres en la lista almacenada: "
 print(lista)
               
 #-------------------------------------------------------------------------------
+
+""" #71 Definir una lista vacía y luego solicitar la carga de 5 enteros
+por teclado y añadirlos a la lista. Imprimir la lista generada."""
+
+lista = []
+x=0
+while x < 5:
+    enteros = int(input("Ingrese un numero : "))
+    lista.append(enteros)
+    x+=1
+print("Lista: ",lista)
+
+
+#--------------------------
+
+lista1 = []
+for x in range(5):
+    valores = int(input("Ingrese un valor: "))
+    lista1.append(valores)
+print("Lista", lista1)
+
+#-----------------------------------------------------------------
+
+""" #72 Realizar la carga de valores enteros por teclado, almacenarlos en una
+lista. Finalizar la carga de enteros al ingresar el cero. Mostrar finalmente
+el tamaño de la lista."""
+
+lista = [ ]
+valores = int(input("ingrese un numero (0 finaliza la carga): "))
+while valores != 0:
+    lista.append(valores)
+    valores = int(input("ingrese un numero: "))
+print("Lista almacenada:", lista)
+print("Largo de la lista: ",len(lista))
+
+#---------------------------------------------------------------
+
+""" #73 Almacenar en una lista los sueldos (valores float) de 5 operarios.
+Imprimir la lista y el promedio de sueldos."""
+suma = 0
+promedio = 0
+x = 0
+s_operarios = []
+while x < 5:
+    sueldos = float(input("Ingrese los sueldos: "))
+    s_operarios.append(sueldos)
+    suma += s_operarios[x]
+    promedio = suma / len(s_operarios)
+    x +=1
+print("Lista de sueldos: ", s_operarios)
+print("Promedio de sueldos: ", promedio)
+
+#------------------------------------------------------------------
+
+""" #74 Cargar por teclado y almacenar en una lista las alturas de 5 personas
+(valores float)
+Obtener el promedio de las mismas. Contar cuántas personas son más altas
+que el promedio y cuántas más bajas."""
+
+lista = []
+x=0
+suma = 0
+y=0
+mas = 0
+menos = 0
+while x < 5:
+    alturas = float(input("Ingrese la altura: "))
+    lista.append(alturas)
+    suma += alturas
+    x+=1
+print("lista: ",lista)
+promedio = suma / len(lista)
+print("Promedio de alturas:", promedio)
+while y < len(lista):
+    if lista[y] < promedio:
+        menos +=1
+    else:
+        mas +=1
+    y+=1
+    
+print("Cantidad de personas mayores al promedio: ", mas)
+print("Cantidad de personas menores al promedio: ", menos)
+
+#-----------------------------------------------------------------
+
+""" #75 Una empresa tiene dos turnos (mañana y tarde) en los que trabajan
+8 empleados (4 por la mañana y 4 por la tarde) Confeccionar un programa que
+permita almacenar los sueldos de los empleados agrupados en dos listas.
+Imprimir las dos listas de sueldos."""
+
+mañana = []
+tarde = []
+empleados = []
+for x in range(8):
+    sueldos = float(input("Ingrese los sueldos: "))
+    empleados.append(sueldos)
+mañana = empleados[0:4]
+tarde = empleados[4:9]
+print("sueldos empleados turno mañana: ", mañana)
+print("sueldos empleados turno tarde: ", tarde)
+
+#---------------------------------------------------------------------
+
+""" #76 Crear y cargar una lista con 5 enteros. Implementar un algoritmo
+que identifique el mayor valor de la lista """
+
+lista = []
+for x in range(5):
+    enteros = int(input("Ingrese un número: "))
+    lista.append(enteros)
+
+#algoritmo para sacar el > elemento de la lista:
+
+mayor = lista[0]
+for x in range(1,5):
+    if lista[x] > mayor:
+        mayor = lista[x]
+print("Lista: ", lista)
+print("Numero mayor: ", mayor)
+
+#-------------------------------------------------------------------------
+
+""" #77 Crear y cargar una lista con 5 enteros por teclado.Implementar un
+algoritmo que identifique el menor valor de la lista y la posición
+donde se encuentra. """
+lista = []
+for x in range (5):
+    enteros = int(input("Ingrese un valor: "))
+    lista.append(enteros)
+posicion = 0
+menor = lista [0]
+for x in range(1, 5):
+    if lista[x] < menor:
+        menor = lista[x]
+        posicion = x
+
+print("Lista: ", lista)
+print("Número menor: ", menor)
+print("Posicion del número: ", posicion)
+
+#----------------------------------------------------------------------
+
+""" #78 Ingresar por teclado los nombres de 5 personas y almacenarlos en
+una lista. Mostrar el nombre de persona menor en orden alfabético"""
+
+lista = []
+for x in range(5):
+    nombres = input("Ingrese los nombres: ")
+    lista.append(nombres)
+
+primera = lista[0]
+for x in range(1,5):
+    if lista[x]<primera:
+        primera = lista[x]
+print("Lista de nombres: ", lista)
+print("Primer nombre en orden: ", primera)
+        
+#----------------------------------------------------------------------------
+
+""" #79 Cargar una lista con 5 elementos enteros.
+Imprimir el mayor y un mensaje si se repite dentro de la lista
+(es decir si dicho valor se encuentra en 2 o más posiciones en la lista)"""
+
+lista = []
+for x in range(5):
+    enteros = int(input("Ingrese un número: "))
+    lista.append(enteros)
+
+#número mayor
+mayor = lista[0]
+for x in range(1,5):
+    if lista[x]>mayor:
+        mayor= lista[x]
+print("Lista: ", lista)
+print("Número mayor: ", mayor)
+
+
+# para ver si el numero se repite:
+repeticion = 0
+for x in range(5):
+    if lista[x]== mayor:
+        repeticion += 1
+if repeticion > 1:
+    print("El valor mayor se encuentra repetido ", repeticion, " veces en la lista")
+
+#-----------------------------------------------------------------------------------
+
+""" #80 Desarrollar un programa que permita cargar 5 nombres de personas
+y sus edades respectivas. Luego de realizar la carga por teclado de todos
+los datos imprimir los nombres de las personas mayores de edad (mayores o
+iguales a 18 años)"""
+
+nombres = []
+edades = []
+for i in range(5):
+    l_nombres = input("Ingrese un nombre: ")
+    nombres.append(l_nombres)
+    l_edades = int(input("Ingrese la edad: "))
+    edades.append(l_edades)
+for x in range(5):
+    if edades[x] >=18:
+        print("Las personas mayores son: ", nombres[x])
+
+#--------------------------------------------------------------------
