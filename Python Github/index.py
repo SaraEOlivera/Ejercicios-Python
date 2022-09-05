@@ -1375,4 +1375,262 @@ for x in range(5):
     if edades[x] >=18:
         print("Las personas mayores son: ", nombres[x])
 
-#--------------------------------------------------------------------
+#------------------------------------------------------------------------
+
+""" #81 Crear y cargar dos listas con los nombres de 5 productos en una
+y sus respectivos precios en otra. Definir dos listas paralelas. Mostrar
+cuantos productos tienen un precio mayor al primer producto ingresado."""
+
+productos = []
+precios = []
+for x in range(5):
+    producto = input("Ingrese el producto: ")
+    productos.append(producto)
+    precio = float(input("Ingrese el precio del producto: "))
+    precios.append(precio)
+
+cantidad = 0
+for x in range(1, 5):
+    if precios[0]<precios[x]:
+        cantidad+=1
+if cantidad > 1:
+    print("Cantidad de productos cuyo precio es mayor al primero: ", cantidad)
+
+#----------------------------------------------------------------------------------
+
+""" #82 En un curso de 4 alumnos se registraron las notas de sus exámenes
+y se deben procesar de acuerdo a lo siguiente:
+a) Ingresar nombre y nota de cada alumno (almacenar los datos en dos listas
+paralelas)
+b) Realizar un listado que muestre los nombres, notas y condición del alumno.
+En la condición, colocar "Muy Bueno" si la nota es mayor o igual a 8, "Bueno"
+si la nota está entre 4 y 7, y colocar "Insuficiente" si la nota es inferior
+a 4.
+c) Imprimir cuantos alumnos tienen la leyenda “Muy Bueno”."""
+
+nombres = []
+notas = []
+for x in range(4):
+    nombre = input("Ingrese el nombre: ")
+    nombres.append(nombre)
+    nota = int(input("Ingrese la nota: "))
+    notas.append(nota)
+cantidad = 0
+for x in range(4):
+    print(nombres[x])
+    print(notas[x])
+    if notas[x] >= 8:
+        print("Muy Bueno")
+        cantidad +=1
+    else:
+        if notas[x]>= 4:
+            print("Bueno")
+        else:
+            print("Insuficiente")
+print("Cantidad de alumnos con condicion Muy bueno: ", cantidad)
+        
+#----------------------------------------------------------------------
+
+""" #83 Realizar un programa que pida la carga de dos listas numéricas
+enteras de 4 elementos cada una. Generar una tercer lista que surja de
+la suma de los elementos de la misma posición de cada lista. Mostrar esta
+tercer lista."""
+
+lista1 = []
+lista2 = []
+lista3 = []
+for x in range(4):
+    numero1 = int(input("Ingrese una número: "))
+    lista1.append(numero1)
+    numero2 = int(input("Ingrese una número: "))
+    lista2.append(numero2)
+for x in range(4):
+    suma = lista1[x]+lista2[x]
+    lista3.append(suma)
+print("Lista 1: ", lista1)
+print("Lista 2: ", lista2)
+print("Lista 3: ", lista3)
+
+#------------------------------------------------------------
+
+# Ordenamiento de elementos de una lista - Ordenamiento burbuja
+
+""" #84 Se debe crear y cargar una lista donde almacenar 5 sueldos.
+Desplazar el valor mayor de la lista a la última posición."""
+sueldos = []
+for x in range(5):
+    sueldo = float(input("Ingrese el sueldo: "))
+    sueldos.append(sueldo)
+print("Lista de sueldos", sueldos)
+
+
+for x in range(4):
+    if sueldos[x] > sueldos[x+1]:
+        aux = sueldos[x]
+        sueldos[x] = sueldos[x+1]
+        sueldos[x+1] = aux
+print("Lista de sueldos: ", sueldos)
+
+#------------------------------------------------------------------------
+""" #85 Se debe crear y cargar una lista donde almacenar 5 sueldos.
+Ordenar de menor a mayor la lista. """
+
+sueldos = []
+for x in range(5):
+    sueldo = int(input("Ingrese un sueldo: "))
+    sueldos.append(sueldo)
+print("Lista original: ", sueldos)
+
+for k in range(4):
+    for x in range (4-k):
+        if sueldos[x] > sueldos[x+1]:
+            aux = sueldos[x]
+            sueldos[x] = sueldos[x+1]
+            sueldos[x+1] = aux
+print("Lista ordenada", sueldos)
+
+#----------------------------------------------------------
+
+""" #86 Crear una lista y almacenar los nombres de 5 países. Ordenar
+alfabéticamente la lista e imprimirla. """
+
+paises = []
+for x in range(5):
+    pais = input("Ingrese un país: ")
+    paises.append(pais)
+print("Lista original de países: ", paises)
+
+for k in range(4):
+    for x in range(4-k):
+        if paises[x]>paises[x+1]:
+            aux = paises[x]
+            paises[x] = paises[x+1]
+            paises[x+1] = aux
+print("Lista de países ordenada alfabéticamente: ", paises)
+
+#------------------------------------------------------------------------
+
+""" #87 Solicitar por teclado la cantidad de empleados que tiene la empresa.
+Crear y cargar una lista con todos los sueldos de dichos empleados.
+Imprimir la lista de sueldos ordenamos de menor a mayor. """
+sueldos = []
+empleados = int(input("¿Cuantos empleados tiene la empresa? "))
+for x in range(empleados):
+    sueldo = int(input("Ingrese el sueldo de cada empleado: "))
+    sueldos.append(sueldo)
+print("Lista de sueldos", sueldos)
+
+for k in range(empleados-1):
+    for x in range(empleados-1-k):
+        if sueldos[x] > sueldos[x+1]:
+            aux = sueldos[x]
+            sueldos[x] = sueldos[x+1]
+            sueldos[x+1]=aux
+print("Lista ordenada: ", sueldos)
+
+#-----------------------------------------------------------------------
+
+""" #88 Cargar una lista con 5 elementos enteros. Ordenarla de menor a mayor
+y mostrarla por pantalla, luego ordenar de mayor a menor e imprimir nuevamente."""
+
+lista = []
+for x in range(5):
+    valores = int(input("Ingrese un valor: "))
+    lista.append(valores)
+print("Lista: ", lista)
+
+#Orden de menor a mayor
+for k in range(4):
+    for x in range(4-k):
+        if lista[x]>lista[x+1]:
+            aux=lista[x]
+            lista[x]=lista[x+1]
+            lista[x+1]=aux
+print("Lista ordenada de menor a mayor", lista)
+
+#Orden de mayor a menor
+
+for k in range(4):
+    for x in range(4-k):
+        if lista[x]<lista[x+1]:
+            aux=lista[x]
+            lista[x]=lista[x+1]
+            lista[x+1]=aux
+print("Lista ordenada de mayor a menor: ", lista)
+
+#-----------------------------------------------------------------
+
+""" #89 Confeccionar un programa que permita cargar los nombres de 5 alumnos
+y sus notas respectivas. Luego ordenar las notas de mayor a menor. Imprimir
+las notas y los nombres de los alumnos."""
+
+alumnos = []
+notas = []
+for x in range(5):
+    nombres= input("Ingrese nombre del alumno: ")
+    alumnos.append(nombres)
+    nota = int(input("Ingrese la nota del alumno: "))
+    notas.append(nota)
+print("Original", alumnos, notas)
+
+#orden notas mayor a menor
+
+for k in range(4):
+    for x in range(4-k):
+        if notas[x]<notas[x+1]:
+            aux=notas[x]
+            notas[x]=notas[x+1]
+            notas[x+1]=aux
+            aux1 = alumnos[x]
+            alumnos[x]=alumnos[x+1]
+            alumnos[x+1]=aux1
+
+print("Calificaciones: ")
+for x in range(5):
+    print(alumnos[x],notas[x])
+
+#------------------------------------------------------------------
+
+""" #90 Crear y cargar en un lista los nombres de 5 países y en otra lista
+paralela la cantidad de habitantes del mismo. Ordenar alfabéticamente e
+imprimir los resultados. Por último ordenar con respecto a la cantidad
+de habitantes (de mayor a menor) e imprimir nuevamente."""
+
+paises = []
+habitantes = []
+for x in range(5):
+    pais = input("Ingrese un pais: ")
+    paises.append(pais)
+    cantidad = int(input("Ingrese la cantidad de habitantes: "))
+    habitantes.append(cantidad)
+print(paises, habitantes)
+
+#Orden alfabético de los paises:
+for k in range(4):
+    for x in range(4-k):
+        if paises[x]>paises[x+1]:
+            aux1 = paises[x]
+            paises[x] = paises[x+1]
+            paises[x+1] = aux1
+            aux2=habitantes[x]
+            habitantes[x]=habitantes[x+1]
+            habitantes[x+1] = aux2
+print("Paises ordenados alfabéticamente: ")
+for x in range(5):
+    print(paises[x], habitantes[x])
+
+#Ordenamiento numérico:
+for k in range(4):
+    for x in range(4-k):
+        if habitantes[x]<habitantes[x+1]:
+            aux=habitantes[x]
+            habitantes[x]=habitantes[x+1]
+            habitantes[x+1]=aux
+            aux1=paises[x]
+            paises[x]=paises[x+1]
+            paises[x+1]=aux1
+print("Lista de habitantes ordenada de mayor a menor")
+for x in range(5):
+    print(habitantes[x],paises[x])
+
+#---------------------------------------------------------------------
