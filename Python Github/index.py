@@ -1634,3 +1634,92 @@ for x in range(5):
     print(habitantes[x],paises[x])
 
 #---------------------------------------------------------------------
+
+""" #91 Crear una lista por asignación. La lista tiene que tener cuatro
+elementos. Cada elemento debe ser una lista de 3 enteros.
+Imprimir sus elementos accediendo de diferentes modos."""
+
+lista = [[1,2,3,],[4,5,6],[7,8,9,],[10,11,12]]
+for k in range(len(lista)):
+    for x in range(len(lista[k])):
+        print(lista[k][x])
+
+#---------------------------------------------------------------------
+
+""" #92 Crear una lista por asignación. La lista tiene que tener 2 elementos.
+Cada elemento debe ser una lista de 5 enteros.
+Calcular y mostrar la suma de cada lista contenida en la lista principal."""
+lista = [[1,2,3,4,5],[6,7,8,9,10]]
+
+# metodo 1:
+suma1=lista[0][0]+lista[0][1]+lista[0][2]+lista[0][3]+lista[0][4]
+print(suma1)
+suma2=lista[1][0]+lista[1][1]+lista[1][2]+lista[1][3]+lista[1][4]
+print(suma2)
+
+#metodo 2: 
+suma = 0
+suma1= 0
+for x in range(len(lista[0])):
+    suma += lista[0][x]
+for x in range(len(lista[1])):
+    suma1 += lista[1][x]
+print(suma)
+print(suma1)
+
+#metodo 3 for anidado:
+
+for k in range(len(lista)):
+    suma = 0
+    for x in range(len(lista[k])):
+        suma+=lista[k][x]
+    print("Suma: ", suma)
+
+#----------------------------------------------------------------------------
+
+""" #93 Crear una lista por asignación. La lista tiene que tener 5 elementos.
+Cada elemento debe ser una lista, la primera lista tiene que tener un elemento,
+la segunda dos elementos, la tercera tres elementos y así sucesivamente.
+Sumar todos los valores de las listas."""
+
+lista = [[1],[1,2],[1,2,3],[1,2,3,4],[1,2,3,4,5]]
+suma = 0
+for k in range(len(lista)):
+    for x in range(len(lista[k])):
+        suma+=lista[k][x]
+print("Lista: ", lista)
+print("Suma:", suma)
+
+#----------------------------------------------------------------------------
+
+""" #94 Se tiene la siguiente lista:
+lista=[[100,7,85,8], [4,8,56,25], [67,89,23,1], [78,56]]
+Imprimir la lista. Luego fijar con el valor cero todos los elementos mayores
+a 50 del primer elemento de "lista".
+Volver a imprimir la lista. """
+
+lista=[[100,7,85,8], [4,8,56,25], [67,89,23,1], [78,56]]
+print("Lista: ", lista)
+
+for x in range(len(lista)):
+    if lista[0][x]>50:
+        lista[0][x] = 0
+print("Lista modificada: ", lista)
+
+#--------------------------------------------------------------------------------
+
+""" #95 Se tiene la siguiente lista:
+lista=[[4,12,5,66], [14,6,25], [3,4,5,67,89,23,1], [78,56]]
+Imprimir la lista. Luego fijar con el valor cero todos los elementos mayores
+a 10 contenidos en todos los elementos de la variable "lista".
+Volver a imprimir la lista."""
+
+lista=[[4,12,5,66], [14,6,25], [3,4,5,67,89,23,1], [78,56]]
+print("Lista: ", lista)
+for k in range(len(lista)):
+    for x in range(len(lista[k])):
+        if lista[k][x] > 10:
+            lista[k][x] = 0
+print("Lista modificada: ", lista)
+
+#-------------------------------------------------------------------------------
