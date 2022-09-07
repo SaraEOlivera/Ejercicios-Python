@@ -1723,3 +1723,131 @@ for k in range(len(lista)):
 print("Lista modificada: ", lista)
 
 #-------------------------------------------------------------------------------
+""" #96 crear una lista por asignación con la cantidad de elementos de tipo
+lista que usted desee. Luego imprimir el último elemento de la lista principal"""
+
+lista = [["hola", "chau"], [14,15], [True, False]]
+print("Lista: ", lista)
+print("Ultimo elemento: ", lista[2])
+print()
+#Solucion del profesor: "
+print(lista[len(lista)-1])
+
+#-------------------------------------------------------------------------------
+""" #97 Crear y cargar una lista con los nombres de tres alumnos. Cada alumno
+tiene dos notas, almacenar las notas en una lista paralela. Cada componente
+de la lista paralela debe ser también una lista con las dos notas.
+Imprimir luego cada nombre y sus dos notas."""
+
+alumnos = []
+notas = []
+for x in range(3):
+    alumno = input("Ingrese el nombre del alumno: ")
+    alumnos.append(alumno)
+    nota1 = int(input("Ingrese la primera nota: "))
+    nota2 = int(input("Ingrese la segunda nota: "))
+    notas.append([nota1, nota2])
+
+for x in range(3):
+    print(alumnos[x], notas[x][0], notas[x][1])
+
+#-------------------------------------------------------------------------------
+""" #98 Se tiene que cargar la siguiente información:
+· Nombres de 3 empleados
+· Ingresos en concepto de sueldo, cobrado por cada empleado, en los últimos 3 meses.
+
+Confeccionar el programa para:
+
+a) Realizar la carga de los nombres de empleados y los tres sueldos por cada empleado.
+b) Generar una lista que contenga el ingreso acumulado en sueldos en los últimos 3 meses para cada empleado.
+c) Mostrar por pantalla el total pagado en sueldos a cada empleado en los últimos 3 meses.
+d) Obtener el nombre del empleado que tuvo el mayor ingreso acumulado. """
+
+#a:
+empleados = []
+sueldos = []
+totalingresos=[]
+for x in range(3):
+    empleado = input("Ingrese el nombre del empleado: ")
+    empleados.append(empleado)
+    sueldo1 = int(input("Ingrese el sueldo del empleado: "))
+    sueldo2 = int(input("Ingrese el sueldo del empleado: "))
+    sueldo3 = int(input("Ingrese el sueldo del empleado: "))
+    sueldos.append([sueldo1, sueldo2, sueldo3])
+#b:  
+suma = 0
+for x in range(3):
+    suma = sueldos[x][0] + sueldos[x][1] + sueldos[x][2]
+    totalingresos.append(suma)
+#c:
+for x in range(3):
+    print("Total ingresos de empleado: ", empleados[x], totalingresos[x])
+
+#d:
+posmayor = 0
+mayor = totalingresos[0]
+for x in range(3):
+    if totalingresos[x]>mayor:
+        mayor = totalingresos[x]
+        posmayor= x
+print("Empleado con mayor ingresos es ", empleados[posmayor], "cuyo ingreso es: ", mayor)
+
+
+#----------------------------------------------------------------------------------
+
+""" #99 Solicitar por teclado dos enteros. El primer valor indica la cantidad
+de elementos que crearemos en la lista. El segundo valor indica la cantidad
+de elementos que tendrá cada una de las listas internas a la lista principal.
+
+Mostrar la lista y la suma de todos sus elementos."""
+
+lista = []
+elementos = int(input("¿Cuantos elementos tendrá la lista? "))
+elsub = int(input("¿Cuántos elementos tendrán las sublistas? "))
+for k in range(elementos):
+    lista.append([])
+    for x in range(elsub):
+        valor= int(input("Ingrese un valor: "))
+        lista[k].append(valor)
+
+print("Lista original: ", lista)
+
+suma=0
+for k in range(len(lista)):
+    for x in range(len(lista[k])):
+        suma+=lista[k][x]
+print("Suma de los elementos: ", suma)
+
+#--------------------------------------------------------------------------------
+""" #100 Definir dos listas de 3 elementos.
+La primera lista es una sublista con el nombre del padre y la madre de una familia.
+La segunda lista está constituida por listas con los nombres de los hijos
+de cada familia. Puede haber familias sin hijos.
+
+Imprimir los nombres del padre, la madre y sus respectivos hijos.
+
+También imprimir solo el nombre del padre y la cantidad de hijos que tiene. """
+
+padres = []
+hijos = []
+for k in range(3):
+    padre=input("Ingrese el nombre del padre: ")
+    madre = input("Ingrese el nombre de la madre: ")
+    padres.append([padre, madre])
+    cantidad= int(input("¿Cuantos hijos tiene la familia? "))
+    hijos.append([])
+    for x in range(cantidad):
+        hijo= input("Ingrese el nombre del hijo: ")
+        hijos[k].append(hijo)
+        
+print("Padre, madre y sus hijos: ")
+for k in range(3):
+    print("Padre: ",padres[k][0], "Madre: ",padres[k][1])
+    for x in range(len(hijos[k])):
+        print("Hijos: ",hijos[k][x])
+
+print("Lista de padres e hijos: ")
+for x in range(3):
+    print("Padre: ",padres[x][0], " Cantidad de hijos: ",len(hijos[x]))
+
+#---------------------------------------------------------------------------
