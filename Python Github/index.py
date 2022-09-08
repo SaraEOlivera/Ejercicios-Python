@@ -1851,3 +1851,172 @@ for x in range(3):
     print("Padre: ",padres[x][0], " Cantidad de hijos: ",len(hijos[x]))
 
 #---------------------------------------------------------------------------
+""" #101 Se desea saber la temperatura media trimestral de cuatro paises. Para
+ello se tiene como dato las temperaturas medias mensuales de dichos paises.
+Se debe ingresar el nombre del país y seguidamente las tres temperaturas
+medias mensuales.
+Seleccionar las estructuras de datos adecuadas para el almacenamiento de los datos en memoria.
+
+a - Cargar por teclado los nombres de los paises y las temperaturas medias mensuales.
+b - Imprimir los nombres de las paises y las temperaturas medias mensuales de las mismas.
+c - Calcular la temperatura media trimestral de cada país.
+d - Imprimir los nombres de los paises y las temperaturas medias trimestrales.
+e - Imprimir el nombre del pais con la temperatura media trimestral mayor. """
+
+#a
+paises = []
+temperaturas = []
+for x in range(4):
+    nombre = input("Ingrese el nombre del pais: ")
+    paises.append(nombre)
+    t1 = int(input("Ingrese la temperatura media: "))
+    t2 = int(input("Ingrese la temperatura media: "))
+    t3 = int(input("Ingrese la temperatura media: "))
+    temperaturas.append([t1, t2, t3])
+#b así no sale impreso entre []
+print("Paises y temperaturas medias")
+for x in range(4):
+    print(paises[x], temperaturas[x][0], temperaturas[x][1], temperaturas[x][2])
+
+#c
+suma = 0
+promedio = 0
+ttrim = []
+for x in range(4):
+    suma = temperaturas[x][0] + temperaturas[x][1] + temperaturas[x][2]
+    promedio = suma / 3
+    ttrim.append(promedio)
+
+#d
+for x in range(4):
+    print(paises[x], "temperatura medias trimestral: ", ttrim[x])
+
+#e
+tmayor = ttrim[0]
+posicion = 0
+for x in range(1, 4):
+    if ttrim[x]>tmayor:
+        tmayor=ttrim[x]
+        posicion = x
+print("País con la temperatura media trimestral mayor:", paises[posicion], " con una temperatura de ", tmayor)
+
+#---------------------------------------------------------------------------------
+""" #102 Definir una lista y almacenar los nombres de 3 empleados. Por otro
+lado definir otra lista y almacenar en cada elemento una sublista con los
+números de días del mes que el empleado faltó.
+
+1. Imprimir los nombres de empleados y los días que faltó.
+2. Mostrar los empleados con la cantidad de inasistencias.
+3. Finalmente mostrar el nombre o los nombres de empleados que faltaron menos días."""
+
+empleados = []
+faltas = []
+for k in range(3):
+    nombre = input("Ingrese nombre del empleado: ")
+    empleados.append(nombre)
+    veces = int(input("¿Cuantas veces falto el empleado? "))
+    faltas.append([])
+    for x in range(veces):
+        dia = int(input("Ingrese el número de día que faltó: "))
+        faltas[k].append(dia)
+
+for x in range(3):
+    print("Empleado: ", empleados[x], "Dias del mes en que faltó: ", faltas[x])
+
+#2
+totalfaltas=[]
+for x in range(3):
+    totalfaltas.append(len(faltas[x]))
+    print("Cantidad de inasistencias de los empleados:", empleados[x],totalfaltas[x])
+
+
+#3. mostrar el nombre o los nombres de empleados que faltaron menos días.
+posmenor = 0
+menor = totalfaltas[0]
+for x in range(1,3):
+    if totalfaltas[x]<menor:
+        menor = totalfaltas[x]
+        posmenor=x
+print("Empleado con menor cantidad de faltas:")
+print(empleados[posmenor], " cantidad de faltas: ", menor)
+
+#-------------------------------------------------------------------------------
+#EJERCICIO 102 - SOLUCION DEL PROFESOR
+
+"""Definir una lista y almacenar los nombres de 3 empleados; en otra almacenar
+en sublistas los números de días del mes que el empleado faltó.
+a. Imprimir los nombres de empleados y los días que faltó.
+b Mostrar los empleados con la cantidad de inasistencias.
+c. Mostrar el nombre o los nombres de empleados que faltaron menos días."""
+
+empleados = []
+faltas = []
+for k in range(3):
+    nombre = input("Ingrese el nombre del empleado: ")
+    empleados.append(nombre)
+    cantidad = int(input("¿cuantos días faltó el empleado? "))
+    faltas.append([]    )
+    for x in range(cantidad):
+        dia = int(input("Ingrese el dia en el que el empleado falto "))
+        faltas[k].append(dia)
+
+print("Nombre de empleados y dias que faltó")
+for k in range(3):
+    print(empleados[k])
+    for x in range(len(faltas[k])):
+        print(faltas[k][x])
+
+print("Nombre empleado y cantidad de inasistencias")
+for x in range(3):
+    print(empleados[x], len(faltas[x]))
+
+menor = len(faltas[0])
+for x in range(1,3):
+    if len(faltas[x])< menor:
+        menor = len(faltas[x])
+
+print("Empleado/s con menor cantidad de inasistencias")
+for x in range(3):
+    if len(faltas[x]) == menor:
+        print(empleados[x])
+
+#-----------------------------------------------------------------------------
+
+""" #104 Desarrollar un programa que cree una lista de 50 elementos. El primer
+elemento es una lista con un elemento entero, el segundo elemento es una lista
+de dos elementos etc.
+La lista debería tener esta estructura y asignarle esos valores a medida
+que se crean los elementos:
+[[1], [1,2], [1,2,3], [1,2,3,4], [1,2,3,4,5], etc....]"""
+#opcion 1
+
+lista=[]
+contador = 1
+for k in range(50):
+    lista.append([])
+    numero = 1
+    for x in range(contador):
+        lista[k].append(numero)
+        numero+=1
+    contador+=1
+print(lista)
+
+#opcion2
+lista1=[]
+for k in range(50):
+    lista1.append([])
+    for x in range(len(lista1)):
+        lista1[k].append(x+1)
+print(lista1)
+
+#-------------------------------------------------------------------
+
+""" #105 Crear una lista por asignación con 5 enteros. Eliminar el primero,
+el tercero y el último de la lista."""
+
+lista = [77, 25, 2, 5, 7]
+print(lista)
+lista.pop(0)
+lista.pop(1)
+lista.pop(2)
+print(lista)
