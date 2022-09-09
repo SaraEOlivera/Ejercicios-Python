@@ -2020,3 +2020,139 @@ lista.pop(0)
 lista.pop(1)
 lista.pop(2)
 print(lista)
+
+#-----------------------------------------------------------------------------
+""" #106 Crear una lista y almacenar 10 enteros pedidos por teclado.
+Eliminar todos los elementos que sean iguales al número entero 5."""
+
+lista = []
+for x in range(10):
+    numeros = int(input("Ingrese un numero: "))
+    lista.append(numeros)
+print(lista)
+
+#opcion 1
+posicion = 0
+while posicion<len(lista):
+    if lista[posicion] == 5:
+        lista.pop(posicion)
+    else:
+        posicion = posicion+1
+print(lista)
+
+#opcion 2
+
+posicion1 = 0
+while posicion1<len(lista):
+    if lista[posicion1] == 5:
+        del(lista[posicion1])
+    else:
+        posicion1 = posicion1+1
+print(lista)
+
+#---------------------------------------------------------------------------
+
+""" #107 Crear dos listas paralelas. En la primera ingresar los nombres de
+empleados y en la segunda los sueldos de cada empleado.
+Ingresar por teclado cuando inicia el programa la cantidad de empleados
+de la empresa.
+Borrar luego todos los empleados que tienen un sueldo mayor a 10000
+(tanto el sueldo como su nombre)"""
+
+empleados = []
+sueldos = []
+cantidad = int(input("Cuantos empleados tiene la empresa? "))
+for x in range(cantidad):
+    nombre = input("ingrese el nombre del empleado ")
+    empleados.append(nombre)
+    sueldo = int(input("Ingrese el sueldo del empleado "))
+    sueldos.append(sueldo)
+for x in range(len(sueldos)):
+    print(empleados[x], sueldos[x])
+
+
+x=0
+while x < len(sueldos):
+    if sueldos[x] > 10000:
+        del(sueldos[x])
+        del(empleados[x])
+    else:
+        x+=1
+
+for x in range(len(sueldos)):
+    print(empleados[x],sueldos[x])
+
+#-----------------------------------------------------------------------
+
+""" #108 Crear una lista de 5 enteros y cargarlos por teclado. Borrar los
+elementos mayores o iguales a 10 y generar una nueva lista con dichos valores."""
+
+lista = []
+for x in range(5):
+    numero = int(input("Ingrese un valor "))
+    lista.append(numero)
+print(lista)
+
+x=0
+lista2=[]
+while x <len(lista):
+    if lista[x]>= 10:
+        lista2.append(lista.pop(x))
+    else:
+        x+=1
+print("Lista modificada ", lista)
+print("Lista de eliminados ", lista2)
+
+#---------------------------------------------------------------------
+
+"""                      PROGRAMACION ESTRUCTURADA
+
+#109 Confeccionar una aplicación que muestre una presentación en pantalla
+del programa. Solicite la carga de dos valores y nos muestre la suma. Mostrar
+finalmente un mensaje de despedida del programa.
+Implementar estas actividades en tres funciones."""
+
+def presentacion():
+    print("Aquí comienza el programa")
+
+def carga_suma():
+    numero1 = int(input("Ingrese un numero: "))
+    numero2 = int(input("Ingrese otro numero: "))
+    suma = numero1 + numero2
+    print("Suma = ", suma)
+
+def finalizacion():
+    print("Aquí concluye el programa")
+
+def barra():
+    print("------------------------------------------------------------")
+
+
+
+presentacion()
+carga_suma()
+finalizacion()
+barra()
+
+#----------------------------------------------------------------------------
+
+""" #110 Confeccionar una aplicación que solicite la carga de dos valores
+enteros y muestre su suma.
+Repetir la carga e impresion de la suma 5 veces.
+Mostrar una línea separadora después de cada vez que cargamos dos valores
+y su suma."""
+
+def carga_y_suma():
+    numero1 =int(input("Ingrese un valor: "))
+    numero2 =int(input("Ingrese un valor: "))
+    suma = numero1 + numero2
+    print("La suma de los valores es ", suma)
+
+def barra_separadora():
+    print("---------------------------------------")
+
+for x in range(5):
+    carga_y_suma()
+    barra_separadora()
+
+#----------------------------------------------------------------------------
