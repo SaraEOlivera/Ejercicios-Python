@@ -2156,3 +2156,118 @@ for x in range(5):
     barra_separadora()
 
 #----------------------------------------------------------------------------
+
+""" #111 Desarrollar un programa con dos funciones. La primer solicite el
+ingreso de un entero y muestre el cuadrado de dicho valor. La segunda que
+solicite la carga de dos valores y muestre el producto de los mismos. LLamar
+desde el bloque del programa principal a ambas funciones.!"""
+
+def cuadrado():
+    numero=int(input("Ingrese un numero: "))
+    resultado = numero * numero
+    print("El numero ingresado elevado al cuadrado es: ", resultado)
+
+def producto():
+    numero1=int(input("Ingrese un numero: "))
+    numero2=int(input("Ingrese un numero: "))
+    resultado = numero1 * numero2
+    print("El producto de ambos numeros es: ", resultado)
+
+
+cuadrado()
+producto()
+
+#----------------------------------------------------------------------------
+
+""" #112 Desarrollar un programa que solicite la carga de tres valores y
+muestre el menor. Desde el bloque principal del programa llamar 2 veces a
+dicha función (sin utilizar una estructura repetitiva)"""
+
+def buscar_menor():
+    numero1=int(input("Ingrese el primer numero: "))
+    numero2=int(input("Ingrese el primer numero: "))
+    numero3=int(input("Ingrese el primer numero: "))
+    if numero1<numero2 and numero1<numero3:
+        print("Numero menor: ", numero1)
+    else:
+        if numero2<numero1 and numero2<numero3:
+            print("Numero menor: ", numero2)
+        else:
+            print("Numero menor: ", numero3)
+
+
+buscar_menor()
+buscar_menor()
+
+#--------------------------------------------------------------------------
+""" #113 Confeccionar una aplicación que muestre una presentación en
+pantalla del programa. Solicite la carga de dos valores y nos muestre
+la suma. Mostrar finalmente un mensaje de despedida del programa."""
+
+def mostrar_mensaje(mensaje):
+    print(mensaje)
+    print("----------------------------------")
+
+def cargar_sumar():
+    numero1= int(input("Ingrese un valor: "))
+    numero2= int(input("Ingrese un valor: "))
+    suma= numero1 + numero2
+    print("Suma = ", suma)
+
+mostrar_mensaje("El programa suma dos valores ingresados")
+cargar_sumar()
+mostrar_mensaje("Fin del programa")
+
+#---------------------------------------------------------------------
+
+""" #114 Confeccionar una función que reciba tres enteros y nos muestre el
+mayor de ellos. La carga de los valores hacerlo por teclado. """
+
+def buscar_mayor(num1, num2, num3):
+    print("El numero mayor es ")
+    if num1>num2 and num1>3:
+        print(num1)
+    else:
+        if num2>num1 and num2>num3:
+            print(num2)
+        else:
+            print(num3)
+
+def cargar_valores():
+    numero1=int(input("Ingrese un numero "))
+    numero2=int(input("Ingrese un numero "))
+    numero3=int(input("Ingrese un numero "))
+    buscar_mayor(numero1, numero2, numero3)
+
+
+cargar_valores()
+
+#----------------------------------------------------------------------------
+
+""" #115 Desarrollar un programa que permita ingresar el lado de un cuadrado.
+Luego preguntar si quiere calcular y mostrar su perímetro o su superficie."""
+
+def calcular_perimetro(l1):
+    perimetro = l1 * 4
+    print("El perimetro del cuadrado es ", perimetro)
+
+def calcular_superficie(lado1):
+    superficie = lado1 * lado1
+    print("La superficie del cuadrado es ", superficie)
+
+def elegir_calculo():
+    lado = int(input("Ingrese el lado de un cuadrado: "))
+    eleccion= input("Ingrese p para calcular perimetro o s para superficie ")
+    if eleccion == "p":
+        calcular_perimetro(lado)
+    else:
+        if eleccion == "s":
+            calcular_superficie(lado)
+        else:
+            print("La opcion ingresada no es correcta")
+
+
+elegir_calculo()
+
+#---------------------------------------------------------------------------------
+
