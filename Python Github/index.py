@@ -2270,4 +2270,128 @@ def elegir_calculo():
 elegir_calculo()
 
 #---------------------------------------------------------------------------------
+""" #116 Desarrollar una funcion que reciba un string como parametro y
+nos muestre la cantidad de vocales. Llamarla desde el bloque principal
+del programa 3 veces con string distintos."""
+
+
+def calcular_vocales(palabra):
+    cantidad = 0
+    for x in range(len(palabra)):
+        if palabra[x] == "a" or palabra[x] == "e" or palabra[x] == "i" or palabra[x] == "o" or palabra[x] == "u":
+            cantidad+=1
+    print("La palabra ", palabra, " tiene cantidad de vocales: ", cantidad)
+
+
+calcular_vocales("texto")
+calcular_vocales("canguro")
+calcular_vocales("editorial")
+
+#----------------------------------------------------------------------------------
+
+""" #117 Confeccionar una función que reciba tres enteros y los muestre
+ordenados de menor a mayor. En otra función solicitar la carga de 3 enteros
+por teclado y proceder a llamar a la primer función definida."""
+
+def ordenar_enteros(ent1, ent2, ent3):
+    if ent1 < ent2 and ent1 < ent3:
+        if ent2 < ent3:
+            print(ent1, ent2, ent3)
+        else:
+            print(ent1, ent3, ent2)
+    else:
+        if ent2 < ent1 and ent2 < ent3:
+            if ent1 < ent3:
+                print(ent2, ent1, ent3)
+            else:
+                print(ent2, ent3, ent1)
+        else:
+            if ent3 < ent1 and ent3 < ent2:
+                if ent2 < ent1:
+                    print(ent3, ent2, ent1)
+                else:
+                    print(ent3, ent1, ent2)
+                    
+
+def cargar_enteros():
+    num1=int(input("Ingrese el primer numero "))
+    num2=int(input("Ingrese el siguiente numero "))
+    num3=int(input("Ingrese el siguiente numero "))
+    ordenar_enteros(num1, num2, num3)
+
+
+cargar_enteros()
+
+#------------------------------------------------------------------------------
+
+""" #118 Confeccionar una función que le enviemos como parámetro el valor
+del lado de un cuadrado y nos retorne su superficie."""
+
+def calcular_superficie(lado_cuadrado):
+    superficie = lado_cuadrado * lado_cuadrado
+    return superficie
+
+
+lado = int(input("Ingrese el lado del cuadrado "))
+print("La superficie del cuadrado es ", calcular_superficie(lado))
+
+#------------------------------------------------------------------
+
+if calcular_superficie(lado) == 100:
+    print("La superficie de este cuadrado es 100")
+else:
+    print("La superficie de este cuadrado no es 100")
+
+#-----------------------------------------------------------------------------
+
+""" #119 Confeccionar una función que le enviemos como parámetros dos
+enteros y nos retorne el mayor."""
+
+def calcular_mayor(num1, num2):
+    if num1>num2:
+        return num1
+    else:
+        return num2
+
+numero1 = int(input("Ingrese el primer numero "))
+numero2 = int(input("Ingrese el siguiente numero "))
+mayor = calcular_mayor(numero1, numero2)
+print("El numero mayor es ", mayor)
+
+#-------------------------------------------------------------------------------
+
+""" #120 Confeccionar una función que le enviemos como parámetro un string
+y nos retorne la cantidad de caracteres que tiene. En el bloque principal
+solicitar la carga de dos nombres por teclado y llamar a la función dos veces.
+Imprimir en el bloque principal cual de las dos palabras tiene más caracteres."""
+
+
+def calcular_caracteres(texto):
+    return len(texto)
+
+nombre1 = input("Ingrese el primer nombre ")
+nombre2 = input("Ingrese el siguiente nombre ")
+print("Palabra con más caracteres")
+if calcular_caracteres(nombre1) > calcular_caracteres(nombre2):
+    print(nombre1)
+else:
+    print(nombre2)
+
+#-------------------------------------------------------------------------------
+
+""" #121 Elaborar una función que reciba tres enteros y nos retorne el
+valor promedio de los mismos."""
+
+def calcular_promedio(num1, num2, num3):
+    promedio = (num1 + num2 + num3) / 3
+    return promedio
+
+numero1 = int(input("Ingrese el primer numero "))
+numero2 = int(input("Ingrese el siguiente numero "))
+numero3 = int(input("Ingrese el siguiente numero "))
+promedio = calcular_promedio(numero1, numero2, numero3)
+print("El promedio de los valores es ", promedio)
+
+#----------------------------------------------------------------------------
+
 
