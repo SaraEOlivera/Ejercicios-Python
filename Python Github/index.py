@@ -2394,4 +2394,92 @@ print("El promedio de los valores es ", promedio)
 
 #----------------------------------------------------------------------------
 
+""" #122 Elaborar una función que nos retorne el perímetro de un cuadrado
+pasando como parámetros el valor de un lado."""
+
+def calcular_perimetro(valor):
+    perimetro = valor * 4
+    print("El perimetro del cuadrado es ", perimetro)
+    return perimetro
+
+def ingresar_lado():
+    lado = int(input("Ingrese el lado del cuadrado "))
+    calcular_perimetro(lado)
+   
+ingresar_lado()
+
+#-------------------------------------------------------------
+""" #123 Confeccionar una función que calcule la superficie de un rectángulo y
+la retorne, la función recibe como parámetros los valores de dos de sus lados:
+def retornar_superficie(lado1,lado2):
+En el bloque principal del programa cargar los lados de dos rectángulos
+y luego mostrar cual de los dos tiene una superficie mayor"""
+
+def calcular_superficie(lado1, lado2):
+    superficie = lado1 * lado2
+    return superficie
+
+largo = int(input("Ingrese el largo del primer rectángulo: "))
+ancho = int(input("Ingrese el ancho del primer rectángulo: "))
+largo2 = int(input("Ingrese el largo del segundo rectángulo: "))
+ancho2 = int(input("Ingrese el ancho del segundo rectángulo: "))
+if calcular_superficie(largo, ancho) > calcular_superficie(largo2, ancho2):
+    print("El primer rectangulo tiene mayor superficie: ", calcular_superficie(largo, ancho))
+else:
+    print("El segundo rectangulo tiene mayor superficie: ", calcular_superficie(largo2, ancho2))
+                                                    
+#-----------------------------------------------------------------
+
+""" #124 Plantear una función que reciba un string en mayúsculas o minúsculas
+y retorne la cantidad de letras 'a' o 'A'."""
+
+def calcular_letras(tx):
+    cantidad = 0
+    for x in range(len(tx)):
+        if tx[x]=="a" or tx[x] == "A":
+            cantidad+=1
+    return cantidad
+        
+texto = input("Ingrese un texto ")
+print("El texto tiene ", calcular_letras(texto), "letras a")
+
+#------------------------------------------------------------
+
+""" #125 Definir por asignación una lista de enteros en el bloque principal
+del programa. Elaborar tres funciones, la primera recibe la lista y retorna
+la suma de todos sus elementos, la segunda recibe la lista y retorna el mayor
+valor y la última recibe la lista y retorna el menor."""
+
+def calcular_suma(lista):
+    suma= 0
+    for x in range(len(lista)):
+        suma+=lista[x]
+    return suma
+
+def calcular_mayor(lista):
+    mayor= lista[0]
+    for x in range(1, len(lista)):
+        if lista[x]>mayor:
+            mayor=lista[x]
+    return mayor
+
+def calcular_menor(lista):
+    menor= lista[0]
+    for x in range(1, len(lista)):
+        if lista[x]<menor:
+            menor=lista[x]
+    return menor
+        
+
+lista = [25, 7, 77]
+print("Lista original ", lista)
+print("Suma ",calcular_suma(lista))
+print("El numero mayor es ", calcular_mayor(lista))
+print("El numero menor es ", calcular_menor(lista))
+
+#----------------------------------------------------------
+
+
+
+
 
