@@ -2479,6 +2479,146 @@ print("El numero menor es ", calcular_menor(lista))
 
 #----------------------------------------------------------
 
+""" #126 Crear y cargar por teclado en el bloque principal del programa una
+lista de 5 enteros. Implementar una función que imprima el mayor y el menor
+valor de la lista."""
+
+def calcular_mayor_menor(lista):
+    mayor=lista[0]
+    menor=lista[0]
+    for x in range(1, len(lista)):
+        if lista[x] > mayor:
+            mayor = lista[x]
+        else:
+            if lista[x]<menor:
+                menor=lista[x]
+    print("Mayor ", mayor)
+    print("Menor ", menor)
+    
+
+lista=[]
+for x in range(5):
+    numero = int(input("Ingrese un numero para agregar a la lista "))
+    lista.append(numero)
+print("Lista ", lista)
+calcular_mayor_menor(lista)
+
+#-----------------------------------------------------------------------
+
+""" #127 Crear una lista de enteros por asignación. Definir una función que
+reciba una lista de enteros y un segundo parámetro de tipo entero. Dentro de
+la función mostrar cada elemento de la lista multiplicado por el valor entero
+enviado.
+lista=[3, 7, 8, 10, 2]
+multiplicar(lista,3)"""
+
+
+def calcular_producto_lista(lista, num):
+    for x in range(len(lista)):
+        producto = lista[x]*num
+        print(producto)
+            
+        
+lista= [7, 25, 5, 77, 11]
+print("Lista original ", lista)
+print("Elementos multiplicados por 3")
+calcular_producto_lista(lista, 3)
+
+#----------------------------------------------------------
+
+""" #128 Desarrollar una función que reciba una lista de string y nos retorne
+el que tiene más caracteres. Si hay más de uno con dicha cantidad de caracteres
+debe retornar el que tiene un valor de componente más baja.
+En el bloque principal iniciamos por asignación la lista de string:
+palabras=["enero", "febrero", "marzo", "abril", "mayo", "junio"]
+print("Palabra con mas caracteres:",mascaracteres(palabras))"""
+
+def calcular_mas_caracteres(lista):
+    mayor = 0
+    for x in range(1, len(lista)):
+        if len(lista[x]) > len(lista[mayor]):
+            mayor= x
+    return lista[mayor]
+
+palabras=["enero", "febrero", "marzo", "abril", "mayo", "junio"]
+print("Lista original ", palabras)
+print("Elemento con mas caracteres:", calcular_mas_caracteres(palabras))
+
+#-----------------------------------------------------------------------
+
+""" #129 Definir una lista de enteros por asignación en el bloque principal.
+Llamar a una función que reciba la lista y nos retorne el producto de todos
+sus elementos. Mostrar dicho producto en el bloque principal de nuestro
+programa."""
+
+def calcular_producto(lista):
+    producto=1
+    for x in range(len(lista)):
+        producto *= lista[x]
+    return producto
+
+lista = [4, 11, 77, 5, 7]
+print("Lista original ", lista)
+print("producto de todos los elementos ", calcular_producto(lista))
+
+#--------------------------------------------------------------------
+
+""" #130 Confeccionar una función que cargue por teclado una lista de 5 enteros
+y la retorne. Una segunda función debe recibir una lista y mostrar todos los
+valores mayores a 10. Desde el bloque principal del programa llamar a ambas
+funciones."""
+
+
+def una_lista():
+    lis = []
+    for x in range(5):
+        numero = int(input("Ingrese un numero "))
+        lis.append(numero)
+    return lis
+
+def calcular_mayores_diez(li):
+    print("Elementos mayores a diez")
+    for x in range(len(li)):
+        if li[x] > 10:
+            print(li[x])
+
+# se le asigna una variable porque si se invoca a la funcion el dato que
+#retorna, se pierde.
+
+lista = una_lista()
+calcular_mayores_diez(lista)
+
+#---------------------------------------------------------------------
+""" #131 Confeccionar una función que cargue por teclado una lista de 5 enteros
+y la retorne. Una segunda función debe recibir una lista y retornar el mayor y
+el menor valor de la lista. Desde el bloque principal del programa llamar a
+ambas funciones e imprimir el mayor y el menor de la lista."""
+
+def cargar_lista():
+    lst=[]
+    for x in range(5):
+        numero = int(input("Ingrese un numero "))
+        lst.append(numero)
+    return lst
+
+
+def calcular_mayor_menor(lis):
+    mayor= lis[0]
+    menor = lis[0]
+    for x in range(1, len(lis)):
+        if lis[x] > mayor:
+            mayor=lis[x]
+        else:
+            if lis[x]<menor:
+                menor=lis[x]
+    return[menor, mayor] #retorna una lista
+
+lista= cargar_lista()
+mym = calcular_mayor_menor(lista) #se asigna una variable a la lista q retorna
+print("Lista: ", lista)
+print("Elemento menor:", mym[0])
+print("Elemento mayor: ", mym[1])
+
 
 
 
