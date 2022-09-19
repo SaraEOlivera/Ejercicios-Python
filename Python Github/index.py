@@ -2619,6 +2619,148 @@ print("Lista: ", lista)
 print("Elemento menor:", mym[0])
 print("Elemento mayor: ", mym[1])
 
+#---------------------------------------------------------------------
+
+""" #132 Desarrollar un programa que permita cargar 5 nombres de personas y sus
+edades respectivas. Luego de realizar la carga por teclado de todos los datos
+imprimir los nombres de las personas mayores de edad (mayores o iguales a 18
+años). Imprimir la edad promedio de las personas"""
+
+def cargar_nombres():
+    nmbrs = []
+    edds = []
+    for x in range(5):
+        nombre = input("Ingrese un nombre ")
+        edad = int(input("Ingrese las edad "))
+        nmbrs.append(nombre)
+        edds.append(edad)
+    return [nmbrs, edds]
+
+def mayores_edad(nombres, edades):
+    print("Personas mayores de edad:")
+    for x in range(len(edades)):
+        if edades[x] >= 18:
+            print(nombres[x])
+
+
+def calcular_promedio(edades):
+    suma = 0
+    for x in range(len(edades)):
+        suma += edades[x]
+        promedio = suma // 5
+    print("El promedio de edades es ", promedio)
+
+
+nombres, edades = cargar_nombres() #distribuye las listas en 2 variables
+mayores_edad(nombres, edades)
+calcular_promedio(edades)
+
+
+#------------------------------------------------------------------
+
+""" #133 En una empresa se almacenaron los sueldos de 10 personas.
+Desarrollar las siguientes funciones y llamarlas desde el bloque principal:
+1) Carga de los sueldos en una lista.
+2) Impresión de todos los sueldos.
+3) Cuántos tienen un sueldo superior a $4000.
+4) Retornar el promedio de los sueldos.
+5) Mostrar todos los sueldos que están por debajo del promedio."""
+superior = 4000
+sueldos = []
+promedio = 0
+def cargar_sueldos():
+    for x in range(10):
+        sueldo= int(input("Ingrese el sueldo del empleado "))
+        sueldos.append(sueldo)
+    print("Sueldos: ", sueldos)
+    
+
+def calcular_sueldo_mayor(li):
+    cantidad = 0
+    for x in range(len(li)):
+        if li[x] > superior:
+            cantidad+=1
+    return cantidad
+
+
+def calcular_promedio(li):
+    suma= 0
+    for x in range(len(li)):
+        suma+= li[x]
+        promedio = suma / len(li)
+    return promedio 
+
+
+def calcular_sueldos_inferiores(li):
+    print("Sueldos por debado del valor promedio")
+    for x in range(len(li)):
+        if li[x] < calcular_promedio(li):
+            print(li[x])
+            
+
+cargar_sueldos()
+print("Sueldos superiores a 4000: ", calcular_sueldo_mayor(sueldos))
+print("Valor promedio de todos los sueldos ", calcular_promedio(sueldos))
+calcular_sueldos_inferiores(sueldos)
+
+#--------------------------------------------------------------------
+
+""" #134 Desarrollar una aplicación que permita ingresar por teclado los
+nombres de 5 artículos y sus precios.
+Definir las siguientes funciones:
+1) Cargar los nombres de articulos y sus precios.
+2) Imprimir los nombres y precios.
+3) Imprimir el nombre de artículo con un precio mayor
+4) Ingresar por teclado un importe y luego mostrar todos los artículos con
+un precio menor igual al valor ingresado."""
+
+articulos = []
+precios = []
+
+def cargar_articulos(articulos, precios):
+    for x in range(5):
+        articulo = input("Ingrese el articulo ")
+        precio = int(input("Ingrese el precio del articulo "))
+        articulos.append(articulo)
+        precios.append(precio)
+    return [articulos, precios]
+
+
+def imprimir_productos(articulos, precios):
+    for x in range(len(precios)):
+        print(articulos[x], precios[x])
+
+
+def calcular_precio_mayor(articulos, precios):
+    mayor = precios[0]
+    posicion = 0
+    for x in range(1, len(precios)):
+        if precios[x] > mayor:
+            mayor = precios[x]
+            posicion = x
+    print("Articulo mas caro ", articulos[posicion], precios[posicion])
+
+
+def mostrar_articulos(articulos, precios):
+    importe = int(input("Ingrese un importe "))
+    print("Articulos con valor menor o igual al ingresado:")
+    for x in range(len(precios)):
+        if precios[x] <= importe:
+            print(articulos[x], precios[x])
+
+
+productos = cargar_articulos(articulos, precios)
+imprimir_productos(articulos, precios)
+calcular_precio_mayor(articulos,precios)
+mostrar_articulos(articulos, precios)
+
+#-------------------------------------------------------------------
+
+
+
+
+
+
 
 
 
