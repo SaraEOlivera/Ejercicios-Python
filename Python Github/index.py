@@ -2756,6 +2756,78 @@ mostrar_articulos(articulos, precios)
 
 #-------------------------------------------------------------------
 
+""" #135 Confeccionar un programa que permita:
+1) Cargar una lista de 10 elementos enteros.
+2) Generar dos listas a partir de la primera. En una guardar los valores
+positivos y en otra los negativos.
+3) Imprimir las dos listas generadas. """
+
+def cargar_lista():
+    lista = []
+    for  x in range(10):
+        numero = int(input("Ingrese un numero: "))
+        lista.append(numero)
+    return lista
+
+def separar_elementos(lista):
+    lista_negativa = []
+    lista_positiva = []
+    for x in range(10):
+        if lista[x] < 0:
+            lista_negativa.append(lista[x])
+        else:
+            lista_positiva.append(lista[x])
+    return [lista_negativa, lista_positiva]
+
+def imprimir_lista(lista):
+    for x in range(len(lista)):
+        print(lista[x])
+    
+#-----------------------------------------------------------
+
+        #  FUNCION CON PARAMETRO CON VALOR POR DEFECTO
+
+""" #136 Confeccionar una función que reciba un string como parámetro y en forma
+opcional un segundo string con un caracter. La función debe mostrar el string
+subrayado con el caracter que indica el segundo parámetro. """
+
+def subrayar_palabra(texto, caracter="="):
+    print(caracter*len(texto))
+    print(texto)
+    print(caracter*len(texto))
+
+
+subrayar_palabra("Bienvenido al juego")
+
+#-----------------------------------------------------------------------
+
+""" #137 Confeccionar una función que reciba entre 2 y 5 enteros.
+La misma nos debe retornar la suma de dichos valores. Debe tener tres
+parámetros por defecto."""
+
+
+def suma_enteros(num1, num2, num3 = 0, num4=0, num5=0):
+    suma = num1 + num2 + num3 + num4 + num5
+    return suma
+
+
+print("2 + 4 + 9 + 165412 = ", suma_enteros(2,4,9, 165412))
+
+#--------------------------------------------------------------
+
+""" #138 Confeccionar una función que reciba el nombre de un operario,
+el pago por hora y la cantidad de horas trabajadas. Debe mostrar su sueldo
+y el nombre. Hacer la llamada de la función mediante argumentos nombrados. """
+
+def calcular_sueldo(operario, costo_hora, cant_horas):
+    sueldo = costo_hora * cant_horas
+    print(operario, " trabajó ", cant_horas, " horas y su sueldo es de $", sueldo)
+
+
+calcular_sueldo("Juan", 1500, 18)
+calcular_sueldo(cant_horas=15, costo_hora= 2000, operario = "Olivia") 
+
+#----------------------------------------------------
 
 
 
