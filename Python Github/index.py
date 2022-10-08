@@ -2827,7 +2827,154 @@ def calcular_sueldo(operario, costo_hora, cant_horas):
 calcular_sueldo("Juan", 1500, 18)
 calcular_sueldo(cant_horas=15, costo_hora= 2000, operario = "Olivia") 
 
-#----------------------------------------------------
+#------------------------------------------------------------------
+
+""" #139 Cargar una lista de 10 enteros, luego mostrarlos por pantalla a
+cada elemento separados por una coma."""
+lista = []
+def listar_numeros():
+    for x in range(10):
+        numero = int(input("Ingrese un numero: "))
+        lista.append(numero)
+    return lista
+
+def imprimir_lista(lista):
+    for x in range(len(lista)):
+        print(lista[x], end=",")
+
+
+listar_numeros()
+imprimir_lista(lista)
+    
+#--------------------------------------------------------
+
+""" #140 Elaborar una función que muestre la tabla de multiplicar del valor
+que le enviemos como parámetro. Definir un segundo parámetro llamado termino
+que por defecto almacene el valor 10. Se deben mostrar tantos términos de la
+tabla de multiplicar como lo indica el segundo parámetro.
+Llamar a la función desde el bloque principal de nuestro programa con
+argumentos nombrados. """
+
+def tabla_multiplicar(valor, termino=10):
+    for x in range(termino):
+        tabla=x*valor
+        print(tabla, ",", sep="", end="")
+    print()# este print es para que todo se imprima en una linea <>
+# end="" es para que no se imprima en forma vertical sino al lado
+# sep="" para que no haya un espacio entre los numeros sino que esten separados por la coma
+
+
+print("Escala 5")
+tabla_multiplicar(5)
+print("Escala del 5 con ocho términos")
+tabla_multiplicar(5,8)
+print("Function con argumentos nombrados")
+tabla_multiplicar(termino=12, valor=9)
+
+#--------------------------------------------------------
+
+            #FUNCIONES CON CANTIDAD VARIABLE DE PARAMETROS
+
+""" #141 Confeccionar una función que reciba entre 2 y n
+(siendo n = 2,3,4,5,6 etc.) valores enteros, retornar la suma de dichos
+parámetros."""
+
+
+
+def sumar_elementos(num1, num2, *lista):
+    suma = num1 + num2
+    for x in range(len(lista)):
+        suma+=lista[x]
+    return suma
+
+
+print("suma de los 2 primeros valores con lista vacia")
+print(sumar_elementos(2,2))
+print("suma de los 2 primeros valores + elementos en lista")
+print(sumar_elementos(2,2,5,4,8,7,9,20))
+
+#-------------------------------------------------------------
+
+                #Desempaquetar una lista o tupla
+
+""" #142 Confeccionar una funcion que reciba tres enteros y retorne la suma.
+LLamar a la funcion enviando tres enteros que se encuentran almacenados en
+una lista."""
+
+
+def sumar_lista(num1, num2, num3, num4):
+    return num1+ num2+ num3 + num4
+
+
+lista=[10, 20, 30, 100]
+print(sumar_lista(lista[0], lista[1], lista[2], lista[3])) #opcion 1
+print(sumar_lista(*lista)) #opcion2
+
+
+# Con el * adelante para desempaquetar los elementos de la lista. 
+
+#--------------------------------------------------------------------
+
+""" #143 Confeccionar una función que reciba una serie de edades y me retorne
+la cantidad que son mayores o iguales a 18 (como mínimo se envía un entero a
+la función)"""
+
+
+def calcular_mayor(num1, *lista):
+    cantidad = 0
+    if num1 >=18:
+        cantidad+=1
+    for x in range(len(lista)):
+        if lista[x]>= 18:
+            cantidad+=1
+    return cantidad
+
+
+
+print("Mayores de edad:")
+print(calcular_mayor(27, 14, 22, 13, 32))
+
+#----------------------------------------------------------------
+
+# Estructura de datos: Tuplas
+
+# #144 Definir varias tuplas e imprimir sus elementos.
+
+
+meses= ("octubre", "enero","julio","mayo","febrero")
+animales = ("pez", "cabra", "vaca", "loro", "gato", "leon", "tigre")
+numeros = (7, 77, 25, 2, 5, 11)
+
+print(numeros[1])
+print(meses[3])
+print(animales[3], animales[4])
+print(numeros)
+print(meses)
+print(animales)
+
+#-------------------------------------------------------------------
+
+""" #145 Desarrollar una función que solicite la carga del dia, mes y año y
+almacene dichos datos en una tupla que luego debe retornar. La segunda función
+a implementar debe recibir una tupla con la fecha y mostrarla por pantalla."""
+
+
+def cargar_datos_fecha():
+    dia=int(input("Ingrese el dia: "))
+    mes=int(input("Ingrese el mes: "))
+    year=int(input("Ingrese el año: "))
+    return(dia, mes, year)# formato fecha. () para tupla
+
+
+def mostrar_fecha(fecha):
+    print(fecha[0], fecha[1], fecha[2], sep="/")
+
+
+fecha = cargar_datos_fecha()
+mostrar_fecha(fecha)
+
+#------------------------------------------------------
+
 
 
 
