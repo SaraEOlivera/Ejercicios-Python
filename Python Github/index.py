@@ -2973,7 +2973,159 @@ def mostrar_fecha(fecha):
 fecha = cargar_datos_fecha()
 mostrar_fecha(fecha)
 
-#------------------------------------------------------
+#-----------------------------------------------------------
+
+""" #146 Definir una tupla con tres valores enteros. Convertir el contenido
+de la tupla a tipo lista. Modificar la lista y luego convertir la lista en
+tupla."""
+
+
+tupla1 = (77, 25, 5)
+print("tupla: ", tupla1)
+lista = list(tupla1)
+print("Lista1: ", lista)
+lista[1]= 77
+print("Lista modificada: ", lista)
+tupla2 = tuple(lista)
+print("Tupla convertida: ", tupla2)
+
+
+# EMPAQUETADO DE TUPLAS:
+
+calle1 = "Caseros"
+calle2 = "Constituyentes"
+direccion = calle1, calle2
+print(direccion) #TUPLA
+
+
+#DESEMPAQUETADO DE TUPLAS:
+
+address = ("Sucre", "Liniers", "Esmeralda")
+print(address)
+calle1, calle2, calle3 = address # tupla desempaquetada.
+print("Calle 1: ", calle1)
+print("Calle 2: ", calle2)
+print("Calle 3: ", calle3)
+
+#-------------------------------------------------------------------
+
+""" #147 Confeccionar un programa con las siguientes funciones:
+1)Cargar una lista de 5 enteros.
+2)Retornar el mayor y menor valor de la lista mediante una tupla.
+Desempaquetar la tupla en el bloque principal y mostrar el mayor y menor."""
+
+def cargar_valores():
+    lista = []
+    for x in range(5):
+        valor= int(input("Ingrese un valor: "))
+        lista.append(valor)
+    return lista
+
+
+def calcular_mayor_menor(lista):
+    mayor = lista[0]
+    menor = lista[0]
+    for x in range(1, len(lista)):
+        if lista[x] < menor:
+            menor = lista[x]
+        else:
+            if lista[x] > mayor:
+                mayor = lista[x]
+    return(mayor, menor)
+
+
+lista= cargar_valores()
+mayor, menor = calcular_mayor_menor(lista)
+print("Numero mayor: ", mayor)
+print("Numero menor: ", menor)
+
+#------------------------------------------------------------
+
+""" #148 Confeccionar un programa con las siguientes funciones:
+
+1)Cargar el nombre de un empleado y su sueldo. Retornar una tupla con dichos
+valores
+2)Una función que reciba como parámetro dos tuplas con los nombres y sueldos
+de empleados y muestre el nombre del empleado con sueldo mayor.
+En el bloque principal del programa llamar dos veces a la función de carga
+y seguidamente llamar a la función que muestra el nombre de empleado con
+sueldo mayor."""
+
+
+def cargar_empleado():
+    nombre = input("Ingrese el nombre del empleado: ")
+    sueldo = float(input("Ingrese el sueldo: "))
+    return(nombre, sueldo)
+
+
+def calcular_mayor_sueldo(empleado1, empleado2):
+    if empleado1[1] > empleado2[1]:
+        print("Empleado con mayor sueldo: ", empleado1[0])
+    else:
+        print("Empleado con mayor sueldo: ", empleado2[0])
+
+
+empleado1=cargar_empleado()
+empleado2=cargar_empleado()
+calcular_mayor_sueldo(empleado1,empleado2)
+
+#-------------------------------------------------------------
+
+# 149 Definir una serie de listas y tuplas anidadas.
+
+print("lista con tupla anidada:")
+alumno=["Juan", "Año: 4", (7, 9, 6)] 
+print(alumno)
+print("Agregar una nueva tupla a la lista:")
+alumno.append((10, 4, 6))
+print(alumno)
+print()
+estudiante =("Luis", ["Calificaciones:", 4, 9, 7])
+print("Tupla con lista anidada:")
+print(estudiante)
+estudiante[1].append(10)#Si se agrega más de un elemento, da error.
+print("Elementos agregados a la lista")
+print(estudiante)
+estudiante[1].append([6, 8, 2])
+print("Nueva lista agregada a la tupla dentro del elemento 1")
+print(estudiante)
+
+#----------------------------------------------------------------
+
+""" #150 Almacenar en una lista de 5 elementos tuplas que guarden el nombre
+de un pais y la cantidad de habitantes.
+Definir tres funciones, en la primera cargar la lista, en la segunda imprimirla
+y en la tercera mostrar el nombre del país con mayor cantidad de habitantes. """
+
+def cargar_paises():
+    paises=[]
+    for x in range(5):
+        pais = input("Ingrese el nombre de un país: ")
+        habitantes = int(input("Ingrese la cantidad de habitantes de ese pais: "))
+        paises.append((pais, habitantes))
+    return paises
+
+def imprimir_lista(paises):
+    print("Paises y sus habitantes")
+    for x in range(len(paises)):
+        print(paises[x][0], paises[x][1])
+
+
+def calcular_mayoria(paises):
+    mayoria=0
+    for x in range(1, len(paises)):
+        if paises[x][1] > paises[mayoria][1]:
+            mayoria = x
+    print("Pais con mayoría de habitantes: ", paises[mayoria][0])
+            
+
+
+paises= cargar_paises()
+imprimir_lista(paises)
+calcular_mayoria(paises)
+
+#------------------------------------------------------------------
+
 
 
 
