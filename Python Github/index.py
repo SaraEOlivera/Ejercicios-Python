@@ -3126,6 +3126,264 @@ calcular_mayoria(paises)
 
 #------------------------------------------------------------------
 
+""" #151 Almacenar en una lista 5 empleados, cada elemento de la lista es una
+sub lista con el nombre del empleado junto a sus últimos tres sueldos
+(estos tres valores en una tupla)
+
+El programa debe tener las siguientes funciones:
+1)Carga de los nombres de empleados y sus últimos tres sueldos.
+2)Imprimir el monto total cobrado por cada empleado.
+3)Imprimir los nombres de empleados que tuvieron un ingreso trimestral
+mayor a 10000 en los últimos tres meses.
+Tener en cuenta que la estructura de datos si se carga por asignación debería
+ser similar a:
+empleados = [["juan",(2000,3000,4233)] , ["ana",(3444,1000,5333)] ,  etc.   ] """
+
+def cargar_datos():
+    empleados = []
+    for x in range(5):
+        nombre = input("Ingrese el nombre del empleado: ")
+        sueldo1 = int(input("Ingrese el sueldo del empleado: "))
+        sueldo2 = int(input("Ingrese el siguiente sueldo del empleado: "))
+        sueldo3 = int(input("Ingrese el siguiente sueldo del empleado: "))
+        empleados.append([nombre, (sueldo1, sueldo2, sueldo3)])
+    return empleados
+
+
+def calcular_trimestral(empleados):
+    print("Sueldo trimestral de cada empleado")
+    for x in range(5):
+        trimestral = empleados[x][1][0] + empleados[x][1][1] + empleados[x][1][2]
+        print(empleados[x][0], trimestral)
+
+
+def calcular_mayor_sueldo(empleados):
+    print("Empleados con sueldo superior a diez mil")
+    mayor = 10000
+    for x in range(5):
+        trimestral = empleados[x][1][0] + empleados[x][1][1] + empleados[x][1][2]
+        if trimestral > mayor:
+            print(empleados[x][0], trimestral)
+            
+        
+
+
+empleados = cargar_datos()
+calcular_trimestral(empleados)
+calcular_mayor_sueldo(empleados)
+
+#-------------------------------------------------------------------
+
+""" #152 Se tiene que cargar los votos obtenidos por tres candidatos a una
+elección.
+En una lista cargar en la primer componente el nombre del candidato y en la
+segunda componente cargar una lista con componentes de tipo tupla con el nombre
+de la provincia y la cantidad de votos obtenidos en dicha provincia.
+Se deben cargar los datos por teclado, pero si se cargaran por asignación
+tendría una estructura similar a esta:
+candidatos=[ ("juan",[("cordoba",100),("buenos aires",200)]) , ("ana", [("cordoba",55)]) , ("luis", [("buenos aires",20)]) ]
+
+1) Función para cargar todos los candidatos, sus nombres y las provincias con los votos obtenidos.
+2) Imprimir el nombre del candidato y la cantidad total de votos obtenidos en todas las provincias. """
+
+def cargar_datos():
+    candidatos = []
+    for x in range(3):
+        nombre = input("Ingrese el nombre del candidato: ")
+        cantidad = int(input("¿cuantas provincias desea agregar? "))
+        provincias = []
+        for z in range(cantidad):
+            provincia = input("Ingrese el nombre de la provincia: ")
+            votos = int(input("Ingrese la cantidad de votos: "))
+            provincias.append((provincia, votos))
+        candidatos.append((nombre, provincias))
+    return candidatos
+
+
+def imprimir_datos_totales(candidatos):
+    print("Candidatos y total de votos obtenidos")
+    for x in range(len(candidatos)):
+        total = 0
+        for z in range(len(candidatos[x][1])):
+            total += candidatos[x][1][z][1]
+        print(candidatos[x][0], total)
+
+
+candidatos = cargar_datos()
+imprimir_datos_totales(candidatos)
+
+#----------------------------------------------------------------
+
+    #Variantes de la estructura repetitiva for para recorrer tuplas y listas
+
+"""lista=[2, 3, 50, 7, 9]
+
+for elemento in lista:
+    print(elemento)
+
+print()
+mi_tupla = (3, 9, 27, 12, 1)
+
+for elemento in mi_tupla:
+    print(elemento  )"""
+
+""" #153 Confeccionar un programa que permita la carga de una lista de 5
+enteros por teclado. Luego en otras funciones:
+1) Imprimirla en forma completa.
+2) Obtener y mostrar el mayor.
+3) Mostrar la suma de todas sus componentes.
+Utilizar la nueva sintaxis de for vista en este concepto."""
+
+lista2 = []
+def cargar_numeros():
+    for x in range(5):
+        enteros = int(input("Ingrese un numero entero "))
+        lista2.append(enteros)
+    return lista2
+
+def imprimir_lista(lista2):
+    for elemento in lista2:
+        print(elemento)
+
+def calcular_mayor(lista2):
+    mayor = lista2[0]
+    for elemento in lista2:
+        if elemento > mayor:
+            mayor = elemento
+    print("El componente mayor es ", mayor)
+
+def sumar_componentes(lista2):
+    suma=0
+    for elemento in lista2:
+        suma+=elemento
+    print("Suma total: ", suma)
+    
+
+lista_enteros = cargar_numeros()
+imprimir_lista(lista2)
+calcular_mayor(lista2)
+sumar_componentes(lista2)
+
+#---------------------------------------------------------
+
+""" #154 Almacenar en una lista de 5 elementos las tuplas con el nombre de
+empleado y su sueldo.
+Implementar las funciones:
+1) Carga de empleados.
+2) Impresión de los empleados y sus sueldos.
+3) Nombre del empleado con sueldo mayor.
+4) Cantidad de empleados con sueldo menor a 1000."""
+
+
+
+def cargar_empleados():
+    empleados = []
+    for x in range(5):
+        nombre = input("Ingrese el nombre del empleado: ")
+        sueldo = int(input("Ingrese el sueldo del empleado: "))
+        empleados.append((nombre, sueldo))
+    return empleados
+
+def imprimir_datos(empleados):
+    print("Empleados")
+    for nombre, sueldo in empleados: #desempaquetar tupla
+        print(nombre, sueldo)
+
+def calcular_mayor(empleados):
+    sueldo_empleado = empleados[0] # el empleado c/mayor sueldo es el 1ro
+    for elem_empleados in empleados: #elem_empleados guarda c/u de los empleados (nombre y sueldo)
+        if elem_empleados[1]>sueldo_empleado[1]:
+            sueldo_empleado= elem_empleados #actualizar variable 
+    print("Empleado con mayor sueldo: ", sueldo_empleado[0], sueldo_empleado[1])
+
+def calcular_empleados(empleados):
+    cantidad = 0
+    for empleado in empleados:
+        if empleado[1]<1000:
+            cantidad+=1
+    print("Empleados con sueldos mayores a $1000: ", cantidad)
+
+    
+    
+empleados = cargar_empleados()
+imprimir_datos(empleados)
+calcular_mayor(empleados)
+calcular_empleados(empleados)
+
+#---------------------------------------------------------------
+
+""" #155
+a) Definir una función que cargue una lista con palabras y la retorne.
+b) Otra función muestre todas las palabras de la lista que tienen
+más de 5 caracteres. """
+
+
+# a
+
+def cargar_palabras():
+    palabras=[]
+    cantidad = int(input("¿Cuantas palabras quiere agregar? "))
+    for x in range(cantidad):
+        palabra = input("Ingrese palabra: ")
+        palabras.append(palabra)
+    return palabras
+
+# b
+
+def imprimir_mayores_cinco(palabras):
+    print("Palabras con más de 5 caracteres:")
+    for palabra in palabras:
+        if len(palabra) > 5:
+            print(palabra)
+
+
+
+palabras = cargar_palabras()
+imprimir_mayores_cinco(palabras)
+
+#--------------------------------------------------------
+
+""" #156 Almacenar los nombres de 5 productos y sus precios. Utilizar una lista
+y cada elemento una tupla con el nombre y el precio.
+Desarrollar las funciones:
+1) Cargar por teclado.
+2) Listar los productos y precios.
+3) Imprimir los productos con precios comprendidos entre 10 y 15."""
+
+# 1)
+
+def cargar_datos():
+    productos = []
+    for x in range(5):
+        nombre = input("Ingrese el nombre del producto ")
+        precio = int(input("Ingrese el precio del producto: "))
+        productos.append((nombre, precio))
+    return productos
+
+# 2)
+
+def imprimir_productos(productos):
+    for nombre, precio in productos:
+        print(nombre, precio)
+
+
+# 3)
+
+def imprimir_entre_precios(productos):
+    min = 10
+    max = 15
+    print("Productos con precios entre 10 y 15")
+    for producto in productos:
+        if producto[1] >= min and producto[1] <= max:
+            print(producto[0], producto[1])
+
+
+productos = cargar_datos()
+imprimir_productos(productos)
+imprimir_entre_precios(productos)
+
+#--------------------------------------------------------------
+
 
 
 
