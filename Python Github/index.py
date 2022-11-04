@@ -3384,9 +3384,252 @@ imprimir_entre_precios(productos)
 
 #--------------------------------------------------------------
 
+"""   Estructura de datos: Diccionario
+
+#157 En el bloque principal del programa definir un diccionario que
+almacene los nombres de paises como clave y como valor la cantidad de
+habitantes. Implementar una función para mostrar cada clave y valor."""
+
+def imprimir_paises(paises):
+    for clave in paises:
+        print(clave, paises[clave])
+
+
+def imprimir_frutas(frutas):
+    for clave in frutas:
+        print(clave, frutas[clave])
+
+
+paises={"argentina":40000000, "españa":46000000, "brasil":190000000, "uruguay": 3400000}
+imprimir_paises(paises)
+print()
+
+frutas ={"peras":150, "manzanas":350, "uvas":280, "banana":180, "naranjas":100}
+imprimir_frutas(frutas)
+
+#-------------------------------------------------------------------------------------------
+
+"""Crear un diccionario que permita almacenar 5 artículos, utilizar como clave
+el nombre de productos y como valor el precio del mismo.
+Desarrollar además las funciones de:
+1) Imprimir en forma completa el diccionario
+2) Imprimir solo los artículos con precio superior a 100. """
+
+def cargar_productos():
+    productos = {}
+    for x in range(5):
+        nombre = input("Ingrese el nombre del producto: ")
+        precio = int(input("Ingrese el precio del producto: "))
+        productos[nombre]= precio
+    return productos
+
+def imprimir_productos(productos):
+    for clave in productos:
+        print(clave, productos[clave])
+
+
+def imprimir_superior(productos):
+    precio = 100
+    print("Productos superiores a $100")
+    for clave in productos:
+        if productos[clave] > precio:
+            print(clave, productos[clave])
+        
+
+productos = cargar_productos()
+imprimir_productos(productos)
+imprimir_superior(productos)
+
+#-----------------------------------------------------------------------
+""" #159 Desarrollar una aplicación que nos permita crear un diccionario
+ingles/castellano. La clave es la palabra en ingles y el valor es la palabra
+en castellano. Crear las siguientes funciones:
+1) Cargar el diccionario.
+2) Listado completo del diccionario.
+3) Ingresar por teclado una palabra en ingles y si existe en el diccionario
+mostrar su traducción."""
+
+def cargar_palabras():
+    palabras = {}
+    cantidad = int(input("Cuantas palabras vas a cargar? "))
+    for x in range(cantidad):
+        palabra = input("Ingrese palabra en inglés ")
+        equivalente = input("Ingrese equivalente en español ")
+        palabras[palabra] = equivalente
+    return palabras
+
+
+def imprimir_diccionario(palabras):
+    for clave in palabras:
+        print(clave, palabras[clave])
+
+
+def buscar_palabras(palabras):
+    termino = input("Busque una palabra ")
+    if termino in palabras:
+        print(palabras[termino])
+    else:
+        print("La palabra no se encuentra en el diccionario")
 
 
 
+palabras = cargar_palabras()
+imprimir_diccionario(palabras)
+buscar_palabras(palabras)
+
+#---------------------------------------------------------
+
+""" #160 Crear un diccionario en Python que defina como clave el número
+de documento de una persona y como valor un string con su nombre.
+Desarrollar las siguientes funciones:
+1) Cargar por teclado los datos de 4 personas.
+2) Listado completo del diccionario.
+3) Consulta del nombre de una persona ingresando su número de documento."""
+
+
+def cargar_datos():
+    personas = {}
+    for x in range(4):
+        documento = int(input("Ingrese documento de la persona "))
+        nombre = input("Ingrese nombre de la persona ")
+        personas[documento] = nombre
+    return personas
+
+def imprimir_datos(personas):
+    print("Lista completa del diccionario")
+    for documento in personas:
+        print(documento, personas[documento])
+
+
+def consultar_datos(personas):
+    consulta = int(input("Ingrese el documento de la persona que busca "))
+    if consulta in personas:
+        print(personas[consulta])
+    else:
+        print("Esa persona no se encuentra registrada")
+
+personas= cargar_datos()
+imprimir_datos(personas)
+consultar_datos(personas)
+
+#-----------------------------------------------------------------------------
+
+""" #161 Confeccionar un programa que permita cargar un código de producto como
+clave en un diccionario. Guardar para dicha clave el nombre del producto,
+su precio y cantidad en stock.
+Implementar las siguientes actividades:
+1) Carga de datos en el diccionario.
+2) Listado completo de productos.
+3) Consulta de un producto por su clave, mostrar el nombre, precio y stock.
+4) Listado de todos los productos que tengan un stock con valor cero."""
+
+def cargar_datos():
+    productos={}
+    continua = "si"
+    while continua == "si":
+        codigo=int(input("Codigo del producto "))
+        nombre = input("Nombre del producto ")
+        precio=int(input("Precio del producto "))
+        stock=int(input("Cantidad en stock: "))
+        productos[codigo]=(nombre, precio, stock)
+        continua=input("¿Desea cargar otro producto? ")
+    return productos
+
+
+def imprimir_productos(productos):
+    print("Lista de productos")
+    for codigo in productos:
+        print(productos[codigo][0],"- precio: ", productos[codigo][1], "- stock: ", productos[codigo][2])
+
+
+def consultar_productos(productos):
+    consulta=int(input("Ingrese el codigo del producto a consultar: "))
+    if consulta in productos:
+        print(productos[consulta][0], productos[consulta][1], productos[consulta][2])
+
+
+def imprimir_sinstock(productos):
+    print("productos sin stock")
+    for codigo in productos:
+        if productos[codigo][2]== 0:
+            print("codigo:", codigo, productos[codigo][0])
+
+
+productos=cargar_datos()
+print("****************")
+imprimir_productos(productos)
+print("****************")
+consultar_productos(productos)
+print("****************")
+imprimir_sinstock(productos)
+
+#------------------------------------------------------------
+#162
+def mostrar_datos(a):
+    perros=["Olivia", "Queso", "Duke"]
+    if a == "Julieta Stratosier":
+        return perros[1]
+    elif a == "Esteban Cortez":
+        return perros[0]
+    elif a == "Esteban Cortez":
+        return perros[2]
+    else:
+        return "Mimi"
+
+dueño1 = "Esteban Cortez"
+dueño2 = "Julieta Stratosier"
+print("Mi perro se llama ", mostrar_datos(dueño2))
+#Queso
+
+Animales=["Odie","Snoopy", "Slinky", "Toto", "Balto","Marley", "Bolt", "Golfo", "Pongo", "Beethoven", "Hachiko", "Benji", "Scooby"]
+print("Original: ", Animales)
+Animales.sort()
+print("con sort", Animales)
+Animales.reverse()
+print("con reverse ", Animales)
+print(Animales.index("Hachiko"))
+
+#-------------------------------------------------------------------------------------------------------------------------------------------
+
+""" #163
+reservaTurno=""
+reservaPosible="16/09/2022"
+perros=("Olivia", "Queso", "Duke", "Mimi")
+fechasDisponibles=["26/08/2022", "27/09/2022", "14/09/2022", "21/09/2022", "19/09/2022"]
+if reservaPosible<"25/09/2022" or reservaPosible<"25/08/2022": #14/09
+    reservaTurno=fechasDisponibles[2]
+elif reservaPosible<"25/09/2022" and reservaPosible<"25/08/2022": #no
+    reservaTurno=fechasDisponibles[4]
+elif reservaPosible<"25/08/2022" or reservaPosible<"25/09/2022": #27/09
+    reservaTurno=fechasDisponibles[1]
+elif reservaPosible<"25/09/2022" and reservaPosible<"25/08/2022": #no
+    reservaTurno=fechasDisponibles[3]
+
+print("turno", reservaTurno)
+"""
+
+perros=["Olivia","Queso","Duke"]
+personas=["Soledad", "Hugo", "Agostina"]
+dueños={}
+clave=1
+elemento=0
+for i in range(len(perros)):
+    dueños[personas[elemento]]=perros[clave]
+    clave-=1
+    elemento+=1
+print(dueños)
+#Soledad-Olivia, Hugo-Queso, Agos-Duke 
+
+#-------------------------------------------------------------------
+#164
+while True:
+    try:
+        x=int(input("ingrese un numero "))
+        print("ok")
+        break
+    except ValueError:
+        print("Numero invalido. Intente de nuevo")
+#----------------------------------------------------------------
 
 
 
